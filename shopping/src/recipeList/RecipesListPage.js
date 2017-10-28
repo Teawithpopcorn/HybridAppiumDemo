@@ -2,18 +2,19 @@ import React, {Component} from 'react';
 import {
   Page,
   List,
-  ListItem,
   SearchInput
 } from 'react-onsenui';
-import _ from 'lodash'
 import NavBar from '../shared/NavBar';
 import recipes from './AllRecipes'
+import RecipeCard from './Recipe'
+import RecipeDetail from '../recipeDetail/RecipeDetailPage'
 
 export default class RecipeListPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchText: null
+      searchText: null,
+      recipeList: recipes
     }
   }
 
@@ -24,19 +25,28 @@ export default class RecipeListPage extends Component {
   }
 
   filterRecipes() {
-    return recipes
+    return recipes;
   }
 
   renderRecipe(row, index) {
-    return (
-      <ListItem key={index}>
-        <div className='left'>
-          <img src={`http://placekitten.com/g/40/40`} className='list-item__thumbnail' />
-        </div>
-        <div className='center'>
-          'name'
-      </div>
-      </ListItem>)
+    const { recipeList } = this.state;
+    const recipe = recipeList[index];
+
+    return <RecipeCard
+      key={index}
+      name={recipe.name}
+      picture={recipe.picture}
+      tapRecipe={this.transitionToDetailPage.bind(this)}
+    />
+  }
+
+  transitionToDetailPage() {
+    const {navigator} = this.props;
+    navigator.pushPage({
+      title: `Recipe Detail`,
+      hasBackButton: true,
+      component: RecipeDetail
+    });
   }
 
   render() {
