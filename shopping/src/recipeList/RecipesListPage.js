@@ -41,6 +41,7 @@ export default class RecipeListPage extends Component {
     return <RecipeCard
       key={index}
       name={recipe.name}
+      description={recipe.description}
       picture={recipe.picture}
       tapRecipe={this.transitionToDetailPage.bind(this)}
     />
