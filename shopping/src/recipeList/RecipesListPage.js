@@ -4,10 +4,11 @@ import {
   List,
   SearchInput
 } from 'react-onsenui';
+import _ from 'lodash';
 import NavBar from '../shared/NavBar';
-import recipes from './AllRecipes'
-import RecipeCard from './Recipe'
-import RecipeDetail from '../recipeDetail/RecipeDetailPage'
+import recipes from './AllRecipes';
+import RecipeCard from './Recipe';
+import RecipeDetail from '../recipeDetail/RecipeDetailPage';
 
 export default class RecipeListPage extends Component {
   constructor(props) {
@@ -18,14 +19,19 @@ export default class RecipeListPage extends Component {
     }
   }
 
-  searchTextChanged(text) {
+  searchTextChanged(e) {
+    const searchText = _.get(e, 'target.value', '');
+    const recipeList = this.filterRecipes(searchText);
     this.setState({
-      searchText: text
+      searchText,
+      recipeList
     });
   }
 
-  filterRecipes() {
-    return recipes;
+  filterRecipes(searchText) {
+    if (_.isEmpty(searchText)) return recipes;
+
+    return _.filter(recipes, recipe => _.includes(recipe.name, searchText));
   }
 
   renderRecipe(row, index) {
@@ -54,9 +60,9 @@ export default class RecipeListPage extends Component {
     return (
       <Page renderToolbar={() => <NavBar title='附近美食' navigator={navigator} />}>
         <div style={{padding: '8px 10px', backgroundColor: '#fafafa'}}>
-          <SearchInput placeholder='Search' style={{width: '100%'}} />
+          <SearchInput placeholder='Search' style={{width: '100%'}} onChange={this.searchTextChanged.bind(this)}/>
         </div>
-        <List dataSource={this.filterRecipes.bind(this)()} renderRow={this.renderRecipe.bind(this)}/>
+        <List dataSource={this.state.recipeList} renderRow={this.renderRecipe.bind(this)}/>
       </Page>
     )
   }
