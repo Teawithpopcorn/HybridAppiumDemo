@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
 import {
   Page,
-  Button
+  Button,
+  Toast
 } from 'react-onsenui';
 import NavBar from '../shared/NavBar';
-import './RecipeDetailPage.css'
+import './RecipeDetailPage.css';
 
 const ComboType = {
   One: 0,
@@ -21,8 +23,36 @@ export default class GoodsDetailPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      combo: null
+      combo: null,
+      flavor: null,
+      error: null
     }
+  }
+
+  onDismissError() {
+    this.setState({error: null})
+  }
+
+  onSubmitOrder() {
+    const { combo, flavor } = this.state;
+    const { navigator } = this.props;
+    let error = null;
+
+    if (combo === null) {
+      error = '请选择套餐';
+    }
+
+    if(combo === ComboType.One && flavor === null ) {
+      error = '请选择口味';
+    }
+
+    this.setState({error});
+
+    setTimeout(() => {
+      if (_.isEmpty(error)) {
+        navigator.popPage()
+      }
+    }, 1000)
   }
 
   renderComboButton(name, type) {
@@ -31,6 +61,7 @@ export default class GoodsDetailPage extends Component {
       const nextComboType = combo !== type ? type : null
       this.setState({
         combo: nextComboType,
+        error: null,
         flavor: null
       })
     };
@@ -51,6 +82,7 @@ export default class GoodsDetailPage extends Component {
     const tapFlavor = () => {
       const nextFlavorType = flavor !== type ? type : null
       this.setState({
+        error: null,
         flavor: nextFlavorType
       })
     }
@@ -68,7 +100,7 @@ export default class GoodsDetailPage extends Component {
 
   render() {
     const {navigator, title, hasBackButton} = this.props;
-    const {combo} = this.state;
+    const {combo, error} = this.state;
 
     return (
       <Page renderToolbar={() => <NavBar title={title} backButton={hasBackButton} navigator={navigator} />}>
@@ -89,8 +121,17 @@ export default class GoodsDetailPage extends Component {
             {this.renderFlavorButton('变态辣', ComboFlavor.VeryHot)}
           </div>
           <hr />
-          <Button modifier='large'>立即购买</Button>
+          <Button modifier='large' fipple onClick={this.onSubmitOrder.bind(this)}>立即购买</Button>
         </div>
+
+        <Toast isOpen={!_.isEmpty(error)}>
+          <div className="message">
+            {error}
+          </div>
+          <button onClick={this.onDismissError.bind(this)}>
+            取消
+          </button>
+        </Toast>
       </Page>
     )
   }
