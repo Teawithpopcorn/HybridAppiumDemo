@@ -52,7 +52,8 @@ export default class RecipeListPage extends Component {
     navigator.pushPage({
       title: recipe.name,
       hasBackButton: true,
-      component: RecipeDetail
+      component: RecipeDetail,
+      params: {recipe}
     });
   }
 

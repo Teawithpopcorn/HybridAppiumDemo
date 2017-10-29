@@ -7,9 +7,13 @@ import {
 
 import RecipeList from './recipeList/RecipesListPage';
 
-const renderPage = (route, navigator) => (
-  <route.component key={route.key} navigator={navigator} title={route.title} hasBackButton={route.hasBackButton}/>
-);
+const renderPage = (route, navigator) => {
+  const {key, title, hasBackButton, params} = route;
+
+  return (
+    <route.component key={key} navigator={navigator} title={title} hasBackButton={hasBackButton} {...params}/>
+  );
+}
 
 const App = () => (
   <Navigator

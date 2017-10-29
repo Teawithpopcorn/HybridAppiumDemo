@@ -99,16 +99,16 @@ export default class GoodsDetailPage extends Component {
   }
 
   render() {
-    const {navigator, title, hasBackButton} = this.props;
+    const {navigator, title, hasBackButton, recipe} = this.props;
     const {combo, error} = this.state;
 
     return (
       <Page renderToolbar={() => <NavBar title={title} backButton={hasBackButton} navigator={navigator} />}>
         <div className='Detail-container'>
           <div>
-            <img src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1463425548,1258189658&fm=27&gp=0.jpg' alt='detail' />
+            <img src={recipe.picture} alt='detail' />
           </div>
-          <p> 炸酱面是中国传统特色面食。最初起源北京，为山东鲁菜。不过在传遍大江南北之后便被誉为“中国十大面条”之一 </p>
+          <p>{recipe.description}</p>
           <hr />
           <div className='Detail-combo'>
             {this.renderComboButton('套餐一', ComboType.One)}
