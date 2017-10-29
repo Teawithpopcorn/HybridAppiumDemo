@@ -23,4 +23,8 @@
   align-self: stretch
 }
 
+.page__background {
+  background-color: white;
+}
+
 
