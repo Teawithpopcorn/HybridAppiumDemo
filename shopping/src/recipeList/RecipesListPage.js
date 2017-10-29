@@ -43,14 +43,14 @@ export default class RecipeListPage extends Component {
       name={recipe.name}
       description={recipe.description}
       picture={recipe.picture}
-      tapRecipe={this.transitionToDetailPage.bind(this)}
+      tapRecipe={this.transitionToDetailPage.bind(this, recipe)}
     />
   }
 
-  transitionToDetailPage() {
+  transitionToDetailPage(recipe) {
     const {navigator} = this.props;
     navigator.pushPage({
-      title: `Recipe Detail`,
+      title: recipe.name,
       hasBackButton: true,
       component: RecipeDetail
     });
