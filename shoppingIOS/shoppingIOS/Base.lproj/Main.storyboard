@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,25 +55,141 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="附近美食" id="ez1-8V-mju"/>
+                    <navigationItem key="navigationItem" title="附近美食" id="ez1-8V-mju">
+                        <barButtonItem key="backBarButtonItem" title=" " id="kNI-GJ-5zF"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="6I4-Wz-xWH" id="Zqw-D0-Tfm"/>
-                        <outlet property="searchDisplayController" destination="F5T-mC-kFb" id="q2N-cK-8m0"/>
                         <outlet property="tableView" destination="4DU-J3-6Cv" id="PEd-lx-Qhu"/>
+                        <segue destination="hC7-SZ-4KF" kind="show" id="6ve-GR-2J8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="MdG-le-rHm"/>
-                <searchDisplayController id="F5T-mC-kFb">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="JxT-7l-yEw"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Juq-0o-wal"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="KwL-yw-GXi"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="dk1-kq-a1v"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="66" y="116"/>
+        </scene>
+        <!--美食详情-->
+        <scene sceneID="W5f-UE-eXT">
+            <objects>
+                <viewController storyboardIdentifier="RecipeDetailController" id="hC7-SZ-4KF" customClass="RecipeDetailController" customModule="shoppingIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z1N-w8-ppy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3w8-2y-6lc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7a0-Et-H21" userLabel="Container">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="437"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQX-C7-8E6" userLabel="Picture">
+                                                <rect key="frame" x="86" y="40" width="203" height="203"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="fQX-C7-8E6" secondAttribute="height" multiplier="1:1" id="0av-r9-kN8"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbB-fj-W67" userLabel="Description">
+                                                <rect key="frame" x="20" y="269" width="335" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jyT-ed-8iD" userLabel="Combos">
+                                                <rect key="frame" x="20" y="315.5" width="150" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQf-sb-jhd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="30"/>
+                                                        <state key="normal" title="套餐一"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOt-WF-vXK">
+                                                        <rect key="frame" x="83" y="0.0" width="67" height="30"/>
+                                                        <state key="normal" title="套餐二"/>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="h2h-ka-HCk"/>
+                                                    <constraint firstAttribute="height" constant="30" id="ri3-1m-ebh"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="g7G-ou-QRS" userLabel="Flavors">
+                                                <rect key="frame" x="20" y="353" width="170" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHF-vP-Fpe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
+                                                        <state key="normal" title="微辣"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zli-da-x7k">
+                                                        <rect key="frame" x="61" y="0.0" width="48" height="30"/>
+                                                        <state key="normal" title="特辣"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-ll-7PO">
+                                                        <rect key="frame" x="122" y="0.0" width="48" height="30"/>
+                                                        <state key="normal" title="变态辣"/>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="TwT-cX-adN"/>
+                                                    <constraint firstAttribute="width" constant="170" id="az0-UG-P9r"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-fp-S2S">
+                                                <rect key="frame" x="20" y="399" width="335" height="38"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="38" id="Wz9-Av-2aw"/>
+                                                </constraints>
+                                                <state key="normal" title="立即购买"/>
+                                                <connections>
+                                                    <action selector="onPurchaseButtonTap:" destination="hC7-SZ-4KF" eventType="touchUpInside" id="Ex2-P8-Tj8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="2zc-fp-S2S" secondAttribute="trailing" constant="20" id="3iX-jd-bBj"/>
+                                            <constraint firstItem="g7G-ou-QRS" firstAttribute="leading" secondItem="jyT-ed-8iD" secondAttribute="leading" id="A28-iW-QKg"/>
+                                            <constraint firstItem="jyT-ed-8iD" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="20" id="BeV-JN-WD7"/>
+                                            <constraint firstItem="fQX-C7-8E6" firstAttribute="top" secondItem="7a0-Et-H21" secondAttribute="top" constant="40" id="C5A-vp-pY1"/>
+                                            <constraint firstAttribute="trailing" secondItem="MbB-fj-W67" secondAttribute="trailing" constant="20" id="Crg-nM-eHc"/>
+                                            <constraint firstItem="2zc-fp-S2S" firstAttribute="top" secondItem="g7G-ou-QRS" secondAttribute="bottom" constant="16" id="IJ8-uF-X3f"/>
+                                            <constraint firstItem="fQX-C7-8E6" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="86" id="KWB-bk-aVk"/>
+                                            <constraint firstItem="jyT-ed-8iD" firstAttribute="top" secondItem="MbB-fj-W67" secondAttribute="bottom" constant="26" id="Ldr-E0-yLm"/>
+                                            <constraint firstAttribute="trailing" secondItem="fQX-C7-8E6" secondAttribute="trailing" constant="86" id="Qsm-rg-h0a"/>
+                                            <constraint firstAttribute="bottom" secondItem="2zc-fp-S2S" secondAttribute="bottom" id="TbY-j4-UPL"/>
+                                            <constraint firstItem="MbB-fj-W67" firstAttribute="top" secondItem="fQX-C7-8E6" secondAttribute="bottom" constant="26" id="Vc9-e3-Cg4"/>
+                                            <constraint firstItem="g7G-ou-QRS" firstAttribute="top" secondItem="jyT-ed-8iD" secondAttribute="bottom" constant="7.5" id="ZWi-CE-o7k"/>
+                                            <constraint firstItem="MbB-fj-W67" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="20" id="c9C-7e-EQF"/>
+                                            <constraint firstItem="2zc-fp-S2S" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="20" id="qRh-vV-KFv"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7a0-Et-H21" secondAttribute="bottom" id="FnM-Gm-P7D"/>
+                                    <constraint firstItem="7a0-Et-H21" firstAttribute="width" secondItem="3w8-2y-6lc" secondAttribute="width" id="NbN-Vg-DOc"/>
+                                    <constraint firstAttribute="trailing" secondItem="7a0-Et-H21" secondAttribute="trailing" id="XMs-T4-RQf"/>
+                                    <constraint firstItem="7a0-Et-H21" firstAttribute="top" secondItem="3w8-2y-6lc" secondAttribute="top" id="XmN-75-GON"/>
+                                    <constraint firstItem="7a0-Et-H21" firstAttribute="leading" secondItem="3w8-2y-6lc" secondAttribute="leading" id="cwy-yY-ZsQ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3w8-2y-6lc" firstAttribute="top" secondItem="zyh-AC-wKC" secondAttribute="top" id="EGt-A1-FwI"/>
+                            <constraint firstItem="3w8-2y-6lc" firstAttribute="leading" secondItem="zyh-AC-wKC" secondAttribute="leading" id="NiJ-xj-L8f"/>
+                            <constraint firstItem="zyh-AC-wKC" firstAttribute="bottom" secondItem="3w8-2y-6lc" secondAttribute="bottom" id="mOk-EB-SDT"/>
+                            <constraint firstItem="zyh-AC-wKC" firstAttribute="trailing" secondItem="3w8-2y-6lc" secondAttribute="trailing" id="vhS-66-MGh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zyh-AC-wKC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="美食详情" id="w1O-7P-fVH"/>
+                    <connections>
+                        <outlet property="purchaseButton" destination="2zc-fp-S2S" id="vei-1a-1YA"/>
+                        <outlet property="recipeDescription" destination="MbB-fj-W67" id="37j-vN-La2"/>
+                        <outlet property="recipeDetail" destination="fQX-C7-8E6" id="TqX-xS-b8S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cm3-z0-pzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="115.59220389805098"/>
         </scene>
     </scenes>
 </document>

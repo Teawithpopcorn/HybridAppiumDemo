@@ -24,6 +24,10 @@ class RecipeListViewModel {
         return displayRecipes[index]
     }
     
+    func generateRecipeDetailViewMode(at index: Int) -> RecipeDetailViewModel {
+        return RecipeDetailViewModel(recipe: cellViewModel(at: index).recipe)
+    }
+    
     func numberOfRows() -> Int {
         return displayRecipes.count
     }

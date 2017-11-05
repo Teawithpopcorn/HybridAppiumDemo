@@ -30,7 +30,6 @@ class RecipeListController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
         searchBar.delegate = self
     }
 }
@@ -42,6 +41,10 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    
+        let vc = R.storyboard.main.recipeDetailController()!
+        vc.viewModel = viewModel.generateRecipeDetailViewMode(at: indexPath.row)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -1,4 +1,4 @@
-class RecipeCellViewModel {
+class RecipeDetailViewModel {
     var name: String {
         return recipe.name
     }
@@ -11,7 +11,7 @@ class RecipeCellViewModel {
         return recipe.picture
     }
     
-    let recipe: Recipe
+    private let recipe: Recipe
     init(recipe: Recipe) {
         self.recipe = recipe
     }
