@@ -5,6 +5,7 @@ import WebKit
 class RecipeListController: UIViewController {
     let viewModel: RecipeListViewModel = RecipeListViewModel()
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,6 +30,8 @@ class RecipeListController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        searchBar.delegate = self
     }
 }
 
@@ -49,3 +52,15 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
+extension RecipeListController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchText = searchText
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        viewModel.searchText = ""
+        tableView.reloadData()
+    }
+}

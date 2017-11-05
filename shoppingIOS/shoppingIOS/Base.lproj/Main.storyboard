@@ -33,35 +33,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="j68-eW-3Nj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="b9o-yQ-Nmj"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xOU-Vq-UwA"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DU-J3-6Cv">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6I4-Wz-xWH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="j68-eW-3Nj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5w4-Tw-fF3"/>
+                            <constraint firstItem="4DU-J3-6Cv" firstAttribute="top" secondItem="6I4-Wz-xWH" secondAttribute="bottom" id="9YP-23-YT3"/>
+                            <constraint firstItem="6I4-Wz-xWH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ES9-d9-gji"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4DU-J3-6Cv" secondAttribute="bottom" id="Jvz-th-VJH"/>
-                            <constraint firstItem="j68-eW-3Nj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Sdk-6G-Rtl"/>
-                            <constraint firstItem="j68-eW-3Nj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a9a-vr-sKq"/>
+                            <constraint firstItem="6I4-Wz-xWH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fo2-qg-aY7"/>
+                            <constraint firstAttribute="trailing" secondItem="6I4-Wz-xWH" secondAttribute="trailing" id="lNI-Y9-bZk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4DU-J3-6Cv" secondAttribute="trailing" id="lpk-Hx-r0p"/>
                             <constraint firstItem="4DU-J3-6Cv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n9u-S9-F1m"/>
-                            <constraint firstItem="4DU-J3-6Cv" firstAttribute="top" secondItem="j68-eW-3Nj" secondAttribute="bottom" id="ore-eO-gZM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="附近美食" id="ez1-8V-mju"/>
                     <connections>
+                        <outlet property="searchBar" destination="6I4-Wz-xWH" id="Zqw-D0-Tfm"/>
                         <outlet property="searchDisplayController" destination="F5T-mC-kFb" id="q2N-cK-8m0"/>
                         <outlet property="tableView" destination="4DU-J3-6Cv" id="PEd-lx-Qhu"/>
                     </connections>
@@ -71,7 +66,6 @@
                 <searchDisplayController id="F5T-mC-kFb">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="JxT-7l-yEw"/>
-                        <outlet property="searchBar" destination="j68-eW-3Nj" id="ugV-Ke-NKg"/>
                         <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Juq-0o-wal"/>
                         <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="KwL-yw-GXi"/>
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="dk1-kq-a1v"/>
