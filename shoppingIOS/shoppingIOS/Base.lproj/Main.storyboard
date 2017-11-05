@@ -63,6 +63,7 @@
                     <navigationItem key="navigationItem" title="附近美食" id="ez1-8V-mju"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="F5T-mC-kFb" id="q2N-cK-8m0"/>
+                        <outlet property="tableView" destination="4DU-J3-6Cv" id="PEd-lx-Qhu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
