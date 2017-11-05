@@ -1,46 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xeO-cg-qo2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="33r-kH-xrN">
+            <objects>
+                <navigationController id="xeO-cg-qo2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3dp-xO-Spx">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pCa-6e-tjV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9lY-PR-T8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-839" y="117"/>
+        </scene>
+        <!--附近美食-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="shoppingIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeListController" title="附近美食" id="BYZ-38-t0r" customClass="RecipeListController" customModule="shoppingIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjM-X5-3NC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="j68-eW-3Nj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="b9o-yQ-Nmj"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xOU-Vq-UwA"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DU-J3-6Cv">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RjM-X5-3NC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="34l-Bs-yh2"/>
-                            <constraint firstItem="RjM-X5-3NC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O9M-nB-1mu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RjM-X5-3NC" secondAttribute="bottom" id="wpN-1p-Ktk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RjM-X5-3NC" secondAttribute="trailing" id="yjz-WT-p6d"/>
+                            <constraint firstItem="j68-eW-3Nj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5w4-Tw-fF3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4DU-J3-6Cv" secondAttribute="bottom" id="Jvz-th-VJH"/>
+                            <constraint firstItem="j68-eW-3Nj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Sdk-6G-Rtl"/>
+                            <constraint firstItem="j68-eW-3Nj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a9a-vr-sKq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4DU-J3-6Cv" secondAttribute="trailing" id="lpk-Hx-r0p"/>
+                            <constraint firstItem="4DU-J3-6Cv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n9u-S9-F1m"/>
+                            <constraint firstItem="4DU-J3-6Cv" firstAttribute="top" secondItem="j68-eW-3Nj" secondAttribute="bottom" id="ore-eO-gZM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="附近美食" id="ez1-8V-mju"/>
                     <connections>
-                        <outlet property="webView" destination="RjM-X5-3NC" id="oio-pJ-fWS"/>
+                        <outlet property="searchDisplayController" destination="F5T-mC-kFb" id="q2N-cK-8m0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="MdG-le-rHm"/>
+                <searchDisplayController id="F5T-mC-kFb">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="JxT-7l-yEw"/>
+                        <outlet property="searchBar" destination="j68-eW-3Nj" id="ugV-Ke-NKg"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Juq-0o-wal"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="KwL-yw-GXi"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="dk1-kq-a1v"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="66" y="116"/>
         </scene>
     </scenes>
 </document>

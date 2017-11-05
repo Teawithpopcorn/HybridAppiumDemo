@@ -25,6 +25,8 @@ xcuserdata/
 
 Pods/
 
+*.generated.swift
+
 # dependencies
 /node_modules
 
