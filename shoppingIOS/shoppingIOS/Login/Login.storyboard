@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PingFang.ttc">
+            <string>PingFangSC-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--登录-->
         <scene sceneID="FvB-1q-sNJ">
@@ -29,37 +34,73 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-8G-WLx" userLabel="Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="466"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入用户名" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZJy-Yq-2A9">
-                                                <rect key="frame" x="60" y="242" width="255" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="账号/邮箱/手机" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZJy-Yq-2A9" customClass="ExtensionTextField" customModule="shoppingIOS" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="222" width="315" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="6b9-Zv-UP1"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="userName"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onUserNameChanged:" destination="MgL-ap-ulF" eventType="editingChanged" id="5vg-uz-jRY"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zci-BL-WtA">
-                                                <rect key="frame" x="80" y="386" width="215" height="30"/>
+                                                <rect key="frame" x="60" y="358" width="255" height="36"/>
+                                                <color key="backgroundColor" red="0.012280770152741094" green="0.27216647889499357" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="xP5-0z-eu2"/>
+                                                </constraints>
                                                 <state key="normal" title="登录">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onLoginButtonTap:" destination="MgL-ap-ulF" eventType="touchUpInside" id="GVW-wz-o2w"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-7C-l9Q">
-                                                <rect key="frame" x="60" y="296" width="255" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-7C-l9Q" customClass="ExtensionTextField" customModule="shoppingIOS" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="282" width="315" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="6VS-pC-Ot4"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="password"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onPasswordChanged:" destination="MgL-ap-ulF" eventType="editingChanged" id="vye-w9-1U3"/>
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-57-rfu">
-                                                <rect key="frame" x="122" y="80" width="130" height="130"/>
+                                                <rect key="frame" x="122" y="60" width="130" height="130"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="b8m-57-rfu" secondAttribute="height" multiplier="1:1" id="AlY-iW-xsh"/>
                                                     <constraint firstAttribute="width" constant="130" id="t9b-5B-HDW"/>
@@ -68,18 +109,18 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.49019607843137253" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="b8m-57-rfu" firstAttribute="top" secondItem="fdf-8G-WLx" secondAttribute="top" constant="80" id="AFX-kg-6EN"/>
+                                            <constraint firstItem="b8m-57-rfu" firstAttribute="top" secondItem="fdf-8G-WLx" secondAttribute="top" constant="60" id="AFX-kg-6EN"/>
                                             <constraint firstItem="ZJy-Yq-2A9" firstAttribute="top" secondItem="b8m-57-rfu" secondAttribute="bottom" constant="32" id="AT0-CX-PtC"/>
-                                            <constraint firstItem="XC8-7C-l9Q" firstAttribute="leading" secondItem="fdf-8G-WLx" secondAttribute="leading" constant="60" id="Ebm-Qs-miI"/>
-                                            <constraint firstAttribute="trailing" secondItem="XC8-7C-l9Q" secondAttribute="trailing" constant="60" id="F9A-kA-U7k"/>
-                                            <constraint firstItem="ZJy-Yq-2A9" firstAttribute="leading" secondItem="fdf-8G-WLx" secondAttribute="leading" constant="60" id="HLf-MP-29j"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZJy-Yq-2A9" secondAttribute="trailing" constant="60" id="IHT-lP-v7u"/>
-                                            <constraint firstAttribute="trailing" secondItem="zci-BL-WtA" secondAttribute="trailing" constant="80" id="NGY-2t-8Rj"/>
+                                            <constraint firstItem="XC8-7C-l9Q" firstAttribute="leading" secondItem="fdf-8G-WLx" secondAttribute="leading" constant="30" id="Ebm-Qs-miI"/>
+                                            <constraint firstAttribute="trailing" secondItem="XC8-7C-l9Q" secondAttribute="trailing" constant="30" id="F9A-kA-U7k"/>
+                                            <constraint firstItem="ZJy-Yq-2A9" firstAttribute="leading" secondItem="fdf-8G-WLx" secondAttribute="leading" constant="30" id="HLf-MP-29j"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZJy-Yq-2A9" secondAttribute="trailing" constant="30" id="IHT-lP-v7u"/>
+                                            <constraint firstAttribute="trailing" secondItem="zci-BL-WtA" secondAttribute="trailing" constant="60" id="NGY-2t-8Rj"/>
                                             <constraint firstItem="b8m-57-rfu" firstAttribute="centerX" secondItem="fdf-8G-WLx" secondAttribute="centerX" id="Ntb-Fs-5YT"/>
-                                            <constraint firstItem="zci-BL-WtA" firstAttribute="top" secondItem="XC8-7C-l9Q" secondAttribute="bottom" constant="60" id="WZC-Vb-8ZV"/>
+                                            <constraint firstItem="zci-BL-WtA" firstAttribute="top" secondItem="XC8-7C-l9Q" secondAttribute="bottom" constant="40" id="WZC-Vb-8ZV"/>
                                             <constraint firstItem="XC8-7C-l9Q" firstAttribute="top" secondItem="ZJy-Yq-2A9" secondAttribute="bottom" constant="24" id="YLh-Kk-VGa"/>
                                             <constraint firstAttribute="bottom" secondItem="zci-BL-WtA" secondAttribute="bottom" constant="50" id="jOe-ZB-FpA"/>
-                                            <constraint firstItem="zci-BL-WtA" firstAttribute="leading" secondItem="fdf-8G-WLx" secondAttribute="leading" constant="80" id="xPZ-iz-OnD"/>
+                                            <constraint firstItem="zci-BL-WtA" firstAttribute="leading" secondItem="fdf-8G-WLx" secondAttribute="leading" constant="60" id="xPZ-iz-OnD"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -118,5 +159,7 @@
     </scenes>
     <resources>
         <image name="loginLogo" width="150" height="150"/>
+        <image name="password" width="66" height="66"/>
+        <image name="userName" width="66" height="66"/>
     </resources>
 </document>
