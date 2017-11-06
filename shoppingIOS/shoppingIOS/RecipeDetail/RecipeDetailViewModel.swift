@@ -12,7 +12,10 @@ class RecipeDetailViewModel {
     }
     
     private let recipe: Recipe
+    
+    let comboRow = ComboRowViewModel()
     init(recipe: Recipe) {
         self.recipe = recipe
     }
+
 }

@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="PingFang.ttc">
-            <string>PingFangSC-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="33r-kH-xrN">
@@ -85,7 +80,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7a0-Et-H21" userLabel="Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="443"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="431.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQX-C7-8E6" userLabel="Picture">
                                                 <rect key="frame" x="86" y="40" width="203" height="203"/>
@@ -106,32 +101,15 @@
                                                     <constraint firstAttribute="height" constant="28" id="rnc-K9-gzi"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="g7G-ou-QRS" userLabel="Flavors">
-                                                <rect key="frame" x="20" y="366" width="170" height="23"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHF-vP-Fpe" customClass="StateButton" customModule="shoppingIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="23"/>
-                                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
-                                                        <state key="normal" title="微辣"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zli-da-x7k" customClass="StateButton" customModule="shoppingIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="61" y="0.0" width="48" height="23"/>
-                                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
-                                                        <state key="normal" title="特辣"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-ll-7PO" customClass="StateButton" customModule="shoppingIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="122" y="0.0" width="48" height="23"/>
-                                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="11"/>
-                                                        <state key="normal" title="变态辣"/>
-                                                    </button>
-                                                </subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhO-Zw-Wsy" userLabel="Flavors" customClass="FlavorRow" customModule="shoppingIOS" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="349.5" width="170" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="23" id="TwT-cX-adN"/>
-                                                    <constraint firstAttribute="width" constant="170" id="az0-UG-P9r"/>
+                                                    <constraint firstAttribute="width" constant="170" id="7gb-Hx-2aT"/>
+                                                    <constraint firstAttribute="height" constant="28" id="bvH-YU-rR4"/>
                                                 </constraints>
-                                            </stackView>
+                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-fp-S2S">
-                                                <rect key="frame" x="20" y="405" width="335" height="38"/>
+                                                <rect key="frame" x="20" y="393.5" width="335" height="38"/>
                                                 <color key="backgroundColor" red="0.0" green="0.49019607840000001" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="Wz9-Av-2aw"/>
@@ -158,15 +136,15 @@
                                             <constraint firstItem="fQX-C7-8E6" firstAttribute="top" secondItem="7a0-Et-H21" secondAttribute="top" constant="40" id="C5A-vp-pY1"/>
                                             <constraint firstAttribute="trailing" secondItem="MbB-fj-W67" secondAttribute="trailing" constant="20" id="Crg-nM-eHc"/>
                                             <constraint firstItem="lMM-Qh-jD9" firstAttribute="top" secondItem="MbB-fj-W67" secondAttribute="bottom" constant="16" id="HiQ-ff-iIS"/>
-                                            <constraint firstItem="2zc-fp-S2S" firstAttribute="top" secondItem="g7G-ou-QRS" secondAttribute="bottom" constant="16" id="IJ8-uF-X3f"/>
-                                            <constraint firstItem="g7G-ou-QRS" firstAttribute="leading" secondItem="lMM-Qh-jD9" secondAttribute="leading" id="KFW-ix-ovb"/>
                                             <constraint firstItem="fQX-C7-8E6" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="86" id="KWB-bk-aVk"/>
+                                            <constraint firstItem="ZhO-Zw-Wsy" firstAttribute="top" secondItem="lMM-Qh-jD9" secondAttribute="bottom" constant="16" id="Mju-yf-liJ"/>
                                             <constraint firstAttribute="trailing" secondItem="fQX-C7-8E6" secondAttribute="trailing" constant="86" id="Qsm-rg-h0a"/>
+                                            <constraint firstItem="2zc-fp-S2S" firstAttribute="top" secondItem="ZhO-Zw-Wsy" secondAttribute="bottom" constant="16" id="Qzm-2h-N0d"/>
                                             <constraint firstAttribute="bottom" secondItem="2zc-fp-S2S" secondAttribute="bottom" id="TbY-j4-UPL"/>
-                                            <constraint firstItem="g7G-ou-QRS" firstAttribute="top" secondItem="lMM-Qh-jD9" secondAttribute="bottom" constant="32.5" id="VM4-VT-rWn"/>
                                             <constraint firstItem="MbB-fj-W67" firstAttribute="top" secondItem="fQX-C7-8E6" secondAttribute="bottom" constant="26" id="Vc9-e3-Cg4"/>
                                             <constraint firstItem="MbB-fj-W67" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="20" id="c9C-7e-EQF"/>
                                             <constraint firstItem="lMM-Qh-jD9" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="20" id="fNj-Sx-0k9"/>
+                                            <constraint firstItem="ZhO-Zw-Wsy" firstAttribute="leading" secondItem="lMM-Qh-jD9" secondAttribute="leading" id="mjS-zQ-Z5y"/>
                                             <constraint firstItem="2zc-fp-S2S" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="20" id="qRh-vV-KFv"/>
                                         </constraints>
                                     </view>

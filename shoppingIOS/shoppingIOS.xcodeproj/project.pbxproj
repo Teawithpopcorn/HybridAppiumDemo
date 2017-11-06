@@ -29,6 +29,9 @@
 		6F1A356F1FAF5ACF004CBBF3 /* NibBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A356E1FAF5ACF004CBBF3 /* NibBaseView.swift */; };
 		6F1A35711FAF5CA8004CBBF3 /* ComboRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A35701FAF5CA8004CBBF3 /* ComboRowViewModel.swift */; };
 		6F1A35731FAF6911004CBBF3 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A35721FAF6911004CBBF3 /* UIView+AutoLayout.swift */; };
+		6F1A35761FAFE3E6004CBBF3 /* FlavorRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1A35751FAFE3E6004CBBF3 /* FlavorRow.xib */; };
+		6F1A35781FAFE4D1004CBBF3 /* FlavorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A35771FAFE4D1004CBBF3 /* FlavorRow.swift */; };
+		6F1A357A1FAFE4F0004CBBF3 /* FlavorRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A35791FAFE4F0004CBBF3 /* FlavorRowViewModel.swift */; };
 		6F49C2A41FA58F1400D20612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49C2A31FA58F1400D20612 /* AppDelegate.swift */; };
 		6F49C2A61FA58F1400D20612 /* RecipeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49C2A51FA58F1400D20612 /* RecipeListController.swift */; };
 		6F49C2A91FA58F1400D20612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F49C2A71FA58F1400D20612 /* Main.storyboard */; };
@@ -81,6 +84,9 @@
 		6F1A356E1FAF5ACF004CBBF3 /* NibBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibBaseView.swift; sourceTree = "<group>"; };
 		6F1A35701FAF5CA8004CBBF3 /* ComboRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboRowViewModel.swift; sourceTree = "<group>"; };
 		6F1A35721FAF6911004CBBF3 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		6F1A35751FAFE3E6004CBBF3 /* FlavorRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlavorRow.xib; sourceTree = "<group>"; };
+		6F1A35771FAFE4D1004CBBF3 /* FlavorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorRow.swift; sourceTree = "<group>"; };
+		6F1A35791FAFE4F0004CBBF3 /* FlavorRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorRowViewModel.swift; sourceTree = "<group>"; };
 		6F49C2A01FA58F1400D20612 /* shoppingIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shoppingIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F49C2A31FA58F1400D20612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F49C2A51FA58F1400D20612 /* RecipeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListController.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				6F1A35691FAF50A2004CBBF3 /* ComboRow */,
+				6F1A35741FAFE3CC004CBBF3 /* FlavorRow */,
 				6F1A355E1FAF2D8E004CBBF3 /* RecipeDetailViewModel.swift */,
 				6F1A35601FAF2DA2004CBBF3 /* RecipeDetailController.swift */,
 			);
@@ -220,6 +227,16 @@
 				6F1A35701FAF5CA8004CBBF3 /* ComboRowViewModel.swift */,
 			);
 			path = ComboRow;
+			sourceTree = "<group>";
+		};
+		6F1A35741FAFE3CC004CBBF3 /* FlavorRow */ = {
+			isa = PBXGroup;
+			children = (
+				6F1A35751FAFE3E6004CBBF3 /* FlavorRow.xib */,
+				6F1A35771FAFE4D1004CBBF3 /* FlavorRow.swift */,
+				6F1A35791FAFE4F0004CBBF3 /* FlavorRowViewModel.swift */,
+			);
+			path = FlavorRow;
 			sourceTree = "<group>";
 		};
 		6F49C2971FA58F1400D20612 = {
@@ -406,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1A35761FAFE3E6004CBBF3 /* FlavorRow.xib in Resources */,
 				6F1A35421FAECCE3004CBBF3 /* Login.storyboard in Resources */,
 				6F49C2AE1FA58F1400D20612 /* LaunchScreen.storyboard in Resources */,
 				6F1A35511FAF0D19004CBBF3 /* RecipeCell.xib in Resources */,
@@ -605,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1A357A1FAFE4F0004CBBF3 /* FlavorRowViewModel.swift in Sources */,
 				6F1A35611FAF2DA2004CBBF3 /* RecipeDetailController.swift in Sources */,
 				6F1A355C1FAF1A18004CBBF3 /* Mocks.swift in Sources */,
 				6F1A35551FAF0D45004CBBF3 /* RecipeCellViewModel.swift in Sources */,
@@ -613,6 +632,7 @@
 				6F1A35641FAF432A004CBBF3 /* Storyboard+UIKit.swift in Sources */,
 				6F1A355A1FAF1366004CBBF3 /* UIImageView+WebImage.swift in Sources */,
 				6F1A356F1FAF5ACF004CBBF3 /* NibBaseView.swift in Sources */,
+				6F1A35781FAFE4D1004CBBF3 /* FlavorRow.swift in Sources */,
 				6F1A35461FAECD34004CBBF3 /* LoginViewModel.swift in Sources */,
 				6F1A35441FAECD1B004CBBF3 /* LoginViewController.swift in Sources */,
 				6F1A355F1FAF2D8E004CBBF3 /* RecipeDetailViewModel.swift in Sources */,
