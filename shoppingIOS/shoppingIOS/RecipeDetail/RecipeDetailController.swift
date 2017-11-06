@@ -39,6 +39,19 @@ class RecipeDetailController: UIViewController {
     }
     
     @IBAction func onPurchaseButtonTap(_ sender: Any) {
+        let error = viewModel.checkValid()
+        guard error == .none else {
+            ShoppingHUD.showPromptMessageHUD(error.rawValue)
+            return
+        }
+    
+        ShoppingHUD.showProgressHUD()
         
+        let when = DispatchTime.now() + 1.5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            ShoppingHUD.hideProgressHUD()
+            ShoppingHUD.showPromptMessageHUD("购买成功")
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

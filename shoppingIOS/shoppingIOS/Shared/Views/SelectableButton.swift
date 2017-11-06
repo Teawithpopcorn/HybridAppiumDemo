@@ -12,7 +12,7 @@ class StateButton: UIButton {
     }
     
     func initialize() {
-        let normalTextColor = UIColor.blue
+        let normalTextColor = UIColor(red: 23/255, green: 146/255, blue: 204/255, alpha: 1.0)
         
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5

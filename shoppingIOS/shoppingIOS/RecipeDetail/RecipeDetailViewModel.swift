@@ -1,4 +1,10 @@
 class RecipeDetailViewModel {
+    enum RecipeValidateError: String {
+        case none
+        case noComboError = "请选择套餐"
+        case noFlavorError = "请选择口味"
+    }
+    
     var name: String {
         return recipe.name
     }
@@ -12,7 +18,7 @@ class RecipeDetailViewModel {
     }
     
     var shouldShowFlavors: Bool {
-        return comboRowViewModel.selectedCombo != .two
+        return comboRowViewModel.selectedCombo != .none && comboRowViewModel.selectedCombo != .two
     }
     
     private let recipe: Recipe
@@ -22,6 +28,18 @@ class RecipeDetailViewModel {
     
     init(recipe: Recipe) {
         self.recipe = recipe
+    }
+    
+    func checkValid() -> RecipeValidateError {
+        guard comboRowViewModel.selectedCombo != .none else {
+            return .noComboError
+        }
+        
+        if comboRowViewModel.selectedCombo == .one && flavorsViewModel.selectedFlavor == .none {
+            return .noFlavorError
+        }
+        
+        return .none
     }
 
     func resetAllFlavors() {
