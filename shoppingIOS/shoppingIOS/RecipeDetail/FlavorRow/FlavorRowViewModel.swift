@@ -6,5 +6,11 @@ enum FlavorType: Int {
 }
 
 class FlavorRowViewModel {
-    var selectedFavor: FlavorType = .none
+    var selectedFlavor: FlavorType = .none
+    var selectedFlavorChanged: ((_ flavor: FlavorType) -> Void)?
+    
+    func updateFlavor(flavor: FlavorType) {
+        selectedFlavor = flavor
+        selectedFlavorChanged?(flavor)
+    }
 }

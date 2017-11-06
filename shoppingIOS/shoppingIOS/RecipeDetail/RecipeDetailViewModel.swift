@@ -11,11 +11,20 @@ class RecipeDetailViewModel {
         return recipe.picture
     }
     
+    var shouldShowFlavors: Bool {
+        return comboRowViewModel.selectedCombo != .two
+    }
+    
     private let recipe: Recipe
     
-    let comboRow = ComboRowViewModel()
+    let comboRowViewModel = ComboRowViewModel()
+    let flavorsViewModel = FlavorRowViewModel()
+    
     init(recipe: Recipe) {
         self.recipe = recipe
     }
 
+    func resetAllFlavors() {
+        flavorsViewModel.updateFlavor(flavor: .none)
+    }
 }

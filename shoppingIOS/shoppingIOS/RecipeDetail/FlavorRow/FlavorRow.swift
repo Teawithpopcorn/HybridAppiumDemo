@@ -3,7 +3,7 @@ class FlavorRow: NibBaseView {
     @IBOutlet weak var hotButton: StateButton!
     @IBOutlet weak var veryHotButton: StateButton!
     
-    let viewModel = FlavorRowViewModel()
+    var viewModel: FlavorRowViewModel!
     
     private var buttons: [StateButton] {
         return [hotALittleButton, hotButton, veryHotButton]
@@ -17,20 +17,30 @@ class FlavorRow: NibBaseView {
         return FlavorType(rawValue: index)!
     }
     
+    func bind(viewModel: FlavorRowViewModel) {
+        self.viewModel = viewModel
+        self.viewModel.selectedFlavorChanged = {[weak self] (type: FlavorType) -> Void in
+            self?.resetAllSelected()
+            if type != .none {
+                let button = self?.buttons[type.rawValue]
+                button?.isSelected = true
+            }
+        }
+    }
     
     @IBAction func onHotButtonsTap(_ sender: StateButton) {
         let newType = getComboType(sender)
         
         resetAllSelected()
-        if newType == viewModel.selectedFavor {
-            viewModel.selectedFavor = .none
+        if newType == viewModel.selectedFlavor {
+            viewModel.selectedFlavor = .none
         } else {
-            viewModel.selectedFavor = newType
+            viewModel.selectedFlavor = newType
             sender.isSelected = !sender.isSelected
         }
     }
     
-    private func resetAllSelected() {
+    func resetAllSelected() {
         buttons.forEach{ $0.isSelected = false }
     }
 }

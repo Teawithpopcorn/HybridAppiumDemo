@@ -4,7 +4,13 @@ class ComboRow: NibBaseView {
     @IBOutlet weak var comboOne: StateButton!
     @IBOutlet weak var comboTwo: StateButton!
     
-    let viewModel = ComboRowViewModel()
+    var comboStateChanged: (() -> Void)?
+    
+    var viewModel: ComboRowViewModel!
+    
+    func bind(viewModel: ComboRowViewModel) {
+        self.viewModel = viewModel
+    }
     
     private var buttons: [StateButton] {
         return [comboOne, comboTwo]
@@ -28,6 +34,8 @@ class ComboRow: NibBaseView {
             viewModel.selectedCombo = newType
             sender.isSelected = !sender.isSelected
         }
+        
+        comboStateChanged?()
     }
     
     private func resetAllSelected() {

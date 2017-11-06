@@ -139,7 +139,7 @@
                                             <constraint firstItem="fQX-C7-8E6" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="86" id="KWB-bk-aVk"/>
                                             <constraint firstItem="ZhO-Zw-Wsy" firstAttribute="top" secondItem="lMM-Qh-jD9" secondAttribute="bottom" constant="16" id="Mju-yf-liJ"/>
                                             <constraint firstAttribute="trailing" secondItem="fQX-C7-8E6" secondAttribute="trailing" constant="86" id="Qsm-rg-h0a"/>
-                                            <constraint firstItem="2zc-fp-S2S" firstAttribute="top" secondItem="ZhO-Zw-Wsy" secondAttribute="bottom" constant="16" id="Qzm-2h-N0d"/>
+                                            <constraint firstItem="2zc-fp-S2S" firstAttribute="top" secondItem="ZhO-Zw-Wsy" secondAttribute="bottom" constant="26" id="Qzm-2h-N0d"/>
                                             <constraint firstAttribute="bottom" secondItem="2zc-fp-S2S" secondAttribute="bottom" id="TbY-j4-UPL"/>
                                             <constraint firstItem="MbB-fj-W67" firstAttribute="top" secondItem="fQX-C7-8E6" secondAttribute="bottom" constant="26" id="Vc9-e3-Cg4"/>
                                             <constraint firstItem="MbB-fj-W67" firstAttribute="leading" secondItem="7a0-Et-H21" secondAttribute="leading" constant="20" id="c9C-7e-EQF"/>
@@ -169,6 +169,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="美食详情" id="w1O-7P-fVH"/>
                     <connections>
+                        <outlet property="comboRow" destination="lMM-Qh-jD9" id="HYt-3I-ub0"/>
+                        <outlet property="flavorRow" destination="ZhO-Zw-Wsy" id="cll-Ur-E7j"/>
                         <outlet property="purchaseButton" destination="2zc-fp-S2S" id="vei-1a-1YA"/>
                         <outlet property="recipeDescription" destination="MbB-fj-W67" id="37j-vN-La2"/>
                         <outlet property="recipeDetail" destination="fQX-C7-8E6" id="TqX-xS-b8S"/>
