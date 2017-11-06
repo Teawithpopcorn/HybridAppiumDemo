@@ -23,8 +23,6 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
-Pods/
-
 *.generated.swift
 
 # dependencies
