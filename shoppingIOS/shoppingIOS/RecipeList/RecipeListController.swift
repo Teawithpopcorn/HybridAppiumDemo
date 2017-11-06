@@ -27,6 +27,7 @@ class RecipeListController: UIViewController {
         let nib = R.nib.recipeCell()
         let idString = R.reuseIdentifier.recipeCell.identifier
         tableView.register(nib, forCellReuseIdentifier: idString)
+        searchBar.placeholder = "搜索美食"
         
         tableView.dataSource = self
         tableView.delegate = self

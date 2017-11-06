@@ -42,24 +42,36 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy9-fH-Yw0" userLabel="Sperator">
+                        <rect key="frame" x="16" y="98.5" width="357" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="zXs-dV-r0T"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="g4b-Sq-Ope" firstAttribute="top" secondItem="30N-TS-q4c" secondAttribute="top" constant="16" id="1Q7-cf-rgK"/>
                     <constraint firstAttribute="trailing" secondItem="WOF-wF-3Qd" secondAttribute="trailing" constant="6" id="97f-uR-kSq"/>
                     <constraint firstItem="3Ke-qL-6U8" firstAttribute="top" secondItem="g4b-Sq-Ope" secondAttribute="top" id="H2v-69-3Ra"/>
                     <constraint firstItem="WOF-wF-3Qd" firstAttribute="leading" secondItem="3Ke-qL-6U8" secondAttribute="leading" id="Lvz-Sj-YmC"/>
+                    <constraint firstItem="Dy9-fH-Yw0" firstAttribute="leading" secondItem="30N-TS-q4c" secondAttribute="leading" constant="16" id="Sb7-ud-pjp"/>
+                    <constraint firstAttribute="bottom" secondItem="Dy9-fH-Yw0" secondAttribute="bottom" id="Xdf-sw-NCB"/>
                     <constraint firstItem="3Ke-qL-6U8" firstAttribute="leading" secondItem="g4b-Sq-Ope" secondAttribute="trailing" constant="16" id="eFp-gq-Cwq"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WOF-wF-3Qd" secondAttribute="bottom" constant="16" id="f3w-Dr-tfY"/>
                     <constraint firstItem="g4b-Sq-Ope" firstAttribute="leading" secondItem="30N-TS-q4c" secondAttribute="leading" constant="16" id="fax-jW-1Nt"/>
                     <constraint firstItem="WOF-wF-3Qd" firstAttribute="top" secondItem="3Ke-qL-6U8" secondAttribute="bottom" constant="10" id="i0N-Ue-7Qi"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Dy9-fH-Yw0" secondAttribute="trailing" constant="2" id="nre-Xp-77p"/>
+            </constraints>
             <connections>
                 <outlet property="recipeDescription" destination="WOF-wF-3Qd" id="bse-yk-4N3"/>
                 <outlet property="recipeImage" destination="g4b-Sq-Ope" id="3p5-Gs-FUS"/>
                 <outlet property="recipeName" destination="3Ke-qL-6U8" id="Kwb-fQ-UzU"/>
             </connections>
-            <point key="canvasLocation" x="-21" y="150"/>
+            <point key="canvasLocation" x="-21.5" y="150"/>
         </tableViewCell>
     </objects>
 </document>
