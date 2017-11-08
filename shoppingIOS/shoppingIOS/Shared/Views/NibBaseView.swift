@@ -18,7 +18,9 @@ class NibBaseView: UIView {
     
     func initialize() {
         if let nibName = self.nibName {
-            nibView = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?[0] as? UIView
+            
+            nibView = Bundle(for: AppDelegate.self)
+                .loadNibNamed(nibName, owner: self, options: nil)?[0] as? UIView
             
             if let actualNibView = nibView {
                 actualNibView.frame = self.bounds
