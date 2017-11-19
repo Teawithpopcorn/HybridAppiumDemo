@@ -84,8 +84,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="附近美食" id="ez1-8V-mju">
-                        <barButtonItem key="backBarButtonItem" title=" " id="kNI-GJ-5zF"/>
+                    <navigationItem key="navigationItem" title="附近美食" id="wOf-LY-8Ix">
+                        <barButtonItem key="backBarButtonItem" title=" " id="h1W-ok-Pen"/>
+                        <barButtonItem key="rightBarButtonItem" title="更多" id="6Q3-e6-bbi">
+                            <connections>
+                                <segue destination="xuj-Bt-La6" kind="show" id="hi4-N4-qAj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="noDataPlaceholderView" destination="iqP-rR-beq" id="V1Z-Md-i0P"/>
@@ -97,6 +102,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="66" y="116"/>
+        </scene>
+        <!--更多测试-->
+        <scene sceneID="hzT-c0-YeQ">
+            <objects>
+                <viewController title="更多测试" id="xuj-Bt-La6" customClass="MoreTestController" customModule="shoppingIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Uu-SE-TWK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="此页面存在内存泄漏,点击返回按钮后改页面不会被释放" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBo-kB-PJV">
+                                <rect key="frame" x="26" y="124" width="323" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGC-z2-3gH">
+                                <rect key="frame" x="20" y="243" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="yIP-it-y89"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="点击APP崩溃">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCrashButtonTap:" destination="xuj-Bt-La6" eventType="touchUpInside" id="0q8-Zn-tdN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="79o-mm-qtP" firstAttribute="trailing" secondItem="pGC-z2-3gH" secondAttribute="trailing" constant="20" id="26a-Uh-utC"/>
+                            <constraint firstItem="pGC-z2-3gH" firstAttribute="top" secondItem="eBo-kB-PJV" secondAttribute="bottom" constant="78" id="hod-If-vod"/>
+                            <constraint firstItem="pGC-z2-3gH" firstAttribute="leading" secondItem="79o-mm-qtP" secondAttribute="leading" constant="20" id="j0O-bs-oSs"/>
+                            <constraint firstItem="eBo-kB-PJV" firstAttribute="top" secondItem="79o-mm-qtP" secondAttribute="top" constant="60" id="mCO-nW-j1g"/>
+                            <constraint firstItem="79o-mm-qtP" firstAttribute="trailing" secondItem="eBo-kB-PJV" secondAttribute="trailing" constant="26" id="oe5-FD-mES"/>
+                            <constraint firstItem="eBo-kB-PJV" firstAttribute="leading" secondItem="79o-mm-qtP" secondAttribute="leading" constant="26" id="piW-gL-7WL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="79o-mm-qtP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxY-aD-sAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64.799999999999997" y="865.81709145427294"/>
         </scene>
         <!--美食详情-->
         <scene sceneID="W5f-UE-eXT">
