@@ -28,7 +28,7 @@ class RecipeDetailController: UIViewController {
     private func updateViews() {
         title = viewModel.name
         recipeDescription.text = viewModel.description
-        recipeDetail.setImageWithUrlString(viewModel.picture)
+        recipeDetail.setImageWithUrlString(viewModel.picture, placeholder: R.image.recipe_placeholder()!)
     
         if viewModel.shouldShowFlavors {
             flavorRow.isHidden = false

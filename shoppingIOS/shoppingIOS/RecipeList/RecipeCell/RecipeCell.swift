@@ -9,6 +9,6 @@ class RecipeCell: UITableViewCell {
         recipeName.text = viewModel.name
         recipeDescription.text = viewModel.description
         
-        recipeImage.setImageWithUrlString(viewModel.picture)
+        recipeImage.setImageWithUrlString(viewModel.picture, placeholder: R.image.recipe_placeholder()!)
     }
 }
