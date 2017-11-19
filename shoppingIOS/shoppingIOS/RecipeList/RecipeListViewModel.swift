@@ -1,16 +1,35 @@
-class RecipeListViewModel {
+class RecipeListViewModel: PageableListDataSource {
     var shouldShowLogin: Bool = true
     var searchText: String = "" {
         didSet {
             displayRecipes = searchRecipe(text: searchText)
         }
     }
-    private let recipes: [Recipe]
-    private var displayRecipes: [Recipe]
+    private var recipes: [Recipe] = [] {
+        didSet {
+            displayRecipes = recipes
+        }
+    }
+    private var displayRecipes: [Recipe] = []
     
-    init() {
-        recipes = Mocks.recipes
-        displayRecipes = recipes
+    func fetchPageableDataList(indexId: Int?) -> Promise<[PageableModel]> {
+        return RecipeAPI.fetchRecipes(lastId: indexId)
+            .then { [unowned self] recipes -> [PageableModel] in
+                if indexId == nil {
+                    self.recipes = []
+                }
+                
+                self.recipes += recipes
+                return recipes
+        }
+    }
+    
+    var pageableDataSource: [PageableModel] {
+        return self.displayRecipes
+    }
+    
+    var hasData: Bool {
+        return self.pageableDataSource.count > 0
     }
     
     private func searchRecipe(text searchString: String) -> [Recipe] {

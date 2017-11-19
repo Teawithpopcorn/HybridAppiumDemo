@@ -38,6 +38,33 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-rR-beq" userLabel="noDataView">
+                                <rect key="frame" x="117" y="281.5" width="141" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noDataBox" translatesAutoresizingMaskIntoConstraints="NO" id="L6B-LW-lGB">
+                                        <rect key="frame" x="20" y="0.0" width="101" height="89"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="101" id="amd-0S-XlR"/>
+                                            <constraint firstAttribute="height" constant="89" id="dzg-Pn-PGt"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无美食" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-rv-sRe" userLabel="暂无美美食">
+                                        <rect key="frame" x="41" y="105" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="L6B-LW-lGB" firstAttribute="centerX" secondItem="iqP-rR-beq" secondAttribute="centerX" id="AAH-4j-8KX"/>
+                                    <constraint firstAttribute="bottom" secondItem="AIK-rv-sRe" secondAttribute="bottom" constant="6" id="F97-Ca-vy2"/>
+                                    <constraint firstItem="L6B-LW-lGB" firstAttribute="leading" secondItem="iqP-rR-beq" secondAttribute="leading" constant="20" id="LUh-qK-cz4"/>
+                                    <constraint firstItem="AIK-rv-sRe" firstAttribute="centerX" secondItem="L6B-LW-lGB" secondAttribute="centerX" id="isd-PU-heU"/>
+                                    <constraint firstItem="AIK-rv-sRe" firstAttribute="top" secondItem="L6B-LW-lGB" secondAttribute="bottom" constant="16" id="nsW-80-fHj"/>
+                                    <constraint firstItem="L6B-LW-lGB" firstAttribute="top" secondItem="iqP-rR-beq" secondAttribute="top" id="rJD-m8-rvD"/>
+                                    <constraint firstAttribute="trailing" secondItem="L6B-LW-lGB" secondAttribute="trailing" constant="20" id="s6W-LL-AEB"/>
+                                </constraints>
+                            </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6I4-Wz-xWH">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -46,8 +73,10 @@
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4DU-J3-6Cv" firstAttribute="top" secondItem="6I4-Wz-xWH" secondAttribute="bottom" id="9YP-23-YT3"/>
+                            <constraint firstItem="iqP-rR-beq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ck5-Ys-LPQ"/>
                             <constraint firstItem="6I4-Wz-xWH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ES9-d9-gji"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4DU-J3-6Cv" secondAttribute="bottom" id="Jvz-th-VJH"/>
+                            <constraint firstItem="iqP-rR-beq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-20" id="b6l-wf-HZm"/>
                             <constraint firstItem="6I4-Wz-xWH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fo2-qg-aY7"/>
                             <constraint firstAttribute="trailing" secondItem="6I4-Wz-xWH" secondAttribute="trailing" id="lNI-Y9-bZk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4DU-J3-6Cv" secondAttribute="trailing" id="lpk-Hx-r0p"/>
@@ -59,6 +88,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="kNI-GJ-5zF"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="noDataPlaceholderView" destination="iqP-rR-beq" id="V1Z-Md-i0P"/>
                         <outlet property="searchBar" destination="6I4-Wz-xWH" id="Zqw-D0-Tfm"/>
                         <outlet property="tableView" destination="4DU-J3-6Cv" id="PEd-lx-Qhu"/>
                         <segue destination="hC7-SZ-4KF" kind="show" id="6ve-GR-2J8"/>
@@ -182,4 +212,7 @@
             <point key="canvasLocation" x="948" y="115.59220389805098"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noDataBox" width="101" height="89"/>
+    </resources>
 </document>

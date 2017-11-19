@@ -7,10 +7,13 @@ class RecipeListController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noDataPlaceholderView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        self.fetchFirstPageData(showHud: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,6 +34,8 @@ class RecipeListController: UIViewController {
         let idString = R.reuseIdentifier.recipeCell.identifier
         tableView.register(nib, forCellReuseIdentifier: idString)
         searchBar.placeholder = "搜索美食"
+        
+        self.configPullRereshAndLoadMore()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -59,15 +64,24 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension RecipeListController: PageableListController {
+    var noDataPlacehoder: UIView? { return noDataPlaceholderView }
+    var pageableViewModel: PageableListDataSource { return viewModel }
+    var contentTableView: UITableView { return tableView! }
+}
 
 extension RecipeListController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchText = searchText
+        
+        noDataPlacehoder?.isHidden = viewModel.hasData
         tableView.reloadData()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         viewModel.searchText = ""
+        
+        noDataPlacehoder?.isHidden = viewModel.hasData
         tableView.reloadData()
     }
 }
