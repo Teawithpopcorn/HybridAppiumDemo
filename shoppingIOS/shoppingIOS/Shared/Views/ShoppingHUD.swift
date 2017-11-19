@@ -4,7 +4,7 @@ import Foundation
 private let hudDelay = 1.5
 
 class ShoppingHUD {
-    class func showProgressHUD(_ message: String = "") {
+    class func showProgressHUD(_ message: String = "加载中...") {
         DispatchQueue.main.async {
             HUD.show(.labeledProgress(title: "", subtitle: message))
         }

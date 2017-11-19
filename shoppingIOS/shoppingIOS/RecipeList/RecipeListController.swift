@@ -22,9 +22,6 @@ class RecipeListController: UIViewController {
         if viewModel.shouldShowLogin {
             viewModel.shouldShowLogin = false
             let loginVC = R.storyboard.login.loginViewController()!
-            loginVC.completeAtion = { [weak self] in
-                
-            }
             present(loginVC, animated: false, completion: nil)
         }
     }
@@ -75,6 +72,10 @@ extension RecipeListController: PageableListController {
 extension RecipeListController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
+        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+            cancelButton.setTitle("取消", for: .normal)
+        }
+        self.removePullRereshAndLoadMore()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -88,7 +89,6 @@ extension RecipeListController: UISearchBarDelegate {
         
         noDataPlacehoder?.isHidden = viewModel.hasData
         tableView.reloadData()
-        self.removePullRereshAndLoadMore()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
