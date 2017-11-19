@@ -1,6 +1,4 @@
-
 import UIKit
-import WebKit
 
 class RecipeListController: UIViewController {
     let viewModel: RecipeListViewModel = RecipeListViewModel()
@@ -12,8 +10,6 @@ class RecipeListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
-        self.fetchFirstPageData(showHud: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,6 +18,10 @@ class RecipeListController: UIViewController {
         if viewModel.shouldShowLogin {
             viewModel.shouldShowLogin = false
             let loginVC = R.storyboard.login.loginViewController()!
+            loginVC.completeAtion = { [unowned self] recipes -> Void in
+                self.viewModel.recipes = recipes
+                self.reloadList()
+            }
             present(loginVC, animated: false, completion: nil)
         }
     }
@@ -39,6 +39,11 @@ class RecipeListController: UIViewController {
         searchBar.delegate = self
         
         tableView.keyboardDismissMode = .onDrag
+    }
+    
+    private func reloadList() {
+        noDataPlacehoder?.isHidden = viewModel.hasData
+        tableView.reloadData()
     }
 }
 
@@ -75,7 +80,7 @@ extension RecipeListController: UISearchBarDelegate {
         if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
             cancelButton.setTitle("取消", for: .normal)
         }
-        self.removePullRereshAndLoadMore()
+        removePullRereshAndLoadMore()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -87,16 +92,14 @@ extension RecipeListController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchText = searchText
         
-        noDataPlacehoder?.isHidden = viewModel.hasData
-        tableView.reloadData()
+        reloadList()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         viewModel.searchText = ""
         searchBar.showsCancelButton = false
-        
-        noDataPlacehoder?.isHidden = viewModel.hasData
-        tableView.reloadData()
-        self.configPullRereshAndLoadMore()
+
+        configPullRereshAndLoadMore()
+        reloadList()
     }
 }

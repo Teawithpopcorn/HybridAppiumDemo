@@ -1,11 +1,12 @@
 import UIKit
+import PromiseKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var completeAtion : (() -> ())?
+    var completeAtion : ((_ recipes: [Recipe]) -> Void)?
     
     let viewModel = LoginViewModel()
     
@@ -17,8 +18,17 @@ class LoginViewController: UIViewController {
         }
         
         modalTransitionStyle = .flipHorizontal
-        dismiss(animated: true) { [weak self] in
-          self?.completeAtion?()
+        
+        ShoppingHUD.showProgressHUD()
+        firstly {
+            return RecipeAPI.fetchRecipes(lastId: nil)
+        }.always {
+            ShoppingHUD.hideProgressHUD()
+        }.then { [weak self] recipes -> Void in
+            self?.completeAtion?(recipes)
+            self?.dismiss(animated: true, completion: nil)
+        }.catch { _ -> Void in
+            ShoppingHUD.showPromptMessageHUD("获取美食失败")
         }
     }
     

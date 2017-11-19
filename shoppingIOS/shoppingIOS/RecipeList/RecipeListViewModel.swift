@@ -5,7 +5,8 @@ class RecipeListViewModel: PageableListDataSource {
             displayRecipes = searchRecipe(text: searchText)
         }
     }
-    private var recipes: [Recipe] = [] {
+    
+    var recipes: [Recipe] = [] {
         didSet {
             displayRecipes = recipes
         }
@@ -41,7 +42,7 @@ class RecipeListViewModel: PageableListDataSource {
     }
     
     func cellViewModel(at index: Int) -> RecipeCellViewModel {
-        return  RecipeCellViewModel(recipe: displayRecipes[index])
+        return RecipeCellViewModel(recipe: displayRecipes[index])
     }
     
     func generateRecipeDetailViewMode(at index: Int) -> RecipeDetailViewModel {
