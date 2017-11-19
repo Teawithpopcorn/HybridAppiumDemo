@@ -1,7 +1,7 @@
 import PromiseKit
 import ESPullToRefresh
 
-let pageSize: Int = 3
+let pageSize: Int = 8
 
 typealias ESRefreshType = ESRefreshProtocol & ESRefreshAnimatorProtocol
 

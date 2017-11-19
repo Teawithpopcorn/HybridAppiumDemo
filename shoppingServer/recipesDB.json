@@ -47,6 +47,90 @@
       "name": "红油饺子",
       "description": " 饺子是一种历史悠久的民间吃食，深受老百姓的欢迎，民间有“好吃不过饺子”的俗语。",
       "picture": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1477616683,2317662849&fm=27&gp=0.jpg"
-    }
+    },
+    {
+        "id": 9,
+        "name": "麻辣兔丁",
+        "description": "麻辣兔丁是一道四川的地方传统名菜，属于川菜系，主要原料是鲜兔、干辣椒、花椒、姜、葱等。",
+        "picture": "http://p2.pccoo.cn/es_product/20141031/2014103120102165837747s.jpg"
+      },
+      {
+        "id": 10,
+        "name": "臭豆腐",
+        "description": "臭豆腐，中国传统特色小吃，在各地的制作方式、食用方法均有相当大的差异，有北方和南方的不同类型，臭豆腐在南方又称臭干子",
+        "picture": "http://rj1.douguo.net/upload/diet/9/c/3/200_9cd1346e9d56c2453f02a6eb8a1cb873.jpg"
+      },
+      {
+        "id": 11,
+        "name": "羊蝎子",
+        "description": "羊蝎子就是带里脊肉和脊髓的完整的羊脊椎骨，因其形跟蝎子相似，故而俗称羊蝎子。羊蝎子低脂肪、低胆固醇、高蛋白，富含钙质。",
+        "picture": "http://img10.cn.gcimg.net/v1/pro/516483/T1.6DTBvCs1RCvBVdK.jpg-200x200.jpg"
+      },
+      {
+        "id": 12,
+        "name": "冰糖葫芦",
+        "description": "冰糖葫芦又叫糖葫芦，在天津又称糖墩儿，在安徽凤阳叫作糖球。冰糖葫芦是中国传统小吃，它是将野果用竹签串成串后蘸上麦芽糖稀，糖稀遇风迅速变硬。",
+        "picture": "http://m.tuniucdn.com/filebroker/cdn/olb/2f/df/2fdffce58af3ebb71aeaef6fa40c2cd8_w200_h200_c1_t0.jpg"
+      },
+      {
+        "id": 13,
+        "name": "糖醋排骨",
+        "description": "糖醋排骨（Sweet and Sour Spare Ribs），是糖醋味型中具有代表性的一道大众喜爱的特色传统名菜。它选用新鲜猪子排作主料，肉质鲜嫩，成莱色泽红亮油润。",
+        "picture": "http://img3.imgtn.bdimg.com/it/u=178026925,1092931778&fm=11&gp=0.jpg"
+      },
+      {
+        "id": 14,
+        "name": "火锅",
+        "description": "火锅，古称“古董羹”，因食物投入沸水时发出的“咕咚”声而得名，它是中国独创的美食，历史悠久，是一种老少皆宜的食物。",
+        "picture": "http://rj1.douguo.net/upload/diet/9/1/7/200_91e170c663e4571e31e234723eb50c67.jpg"
+      },
+      {
+        "id": 15,
+        "name": "回锅肉",
+        "description": "回锅肉是一种烹调猪肉的四川传统菜式，属于川菜系。制作原料主要有猪肉、青椒、蒜苗等，口味独特，色泽红亮，肥而不腻，入口浓香。",
+        "picture": "http://img.38xf.com/uploads/20171027/25102079f1e94d8b6c11f2ffbaec7da9.jpg"
+      },
+      {
+        "id": 16,
+        "name": "麻辣牛肉",
+        "description": "麻辣牛肉是一道四川省的传统名菜，属于川菜系，制作原料主要有牛肉、豆腐、豌豆等，此菜色泽褐红，麻辣鲜香，干香滋润化渣。",
+        "picture": "http://img4.imgtn.bdimg.com/it/u=2875793084,3929473176&fm=27&gp=0.jpg"
+      },
+      {
+        "id": 17,
+        "name": "皮蛋瘦肉粥",
+        "description": "皮蛋瘦肉粥是一种广东省的地方传统名小吃。皮蛋瘦肉粥营养丰富，以切成小块的皮蛋及咸瘦肉为配料。",
+        "picture": "http://rj2.douguo.net/upload/diet/3/4/3/200_34f15073dedeaefbf882be956dbb56c3.jpg"
+      },
+      {
+        "id": 18,
+        "name": "清蒸大闸蟹",
+        "description": "清蒸大闸蟹，是江南地区传统的地方名菜。此菜螃蟹原形原味，色泽橙黄，蟹肉鲜美，营养丰富。",
+        "picture": "http://img.38xf.com/uploads/20171007/779f8c3b0fd4a7d0ac7a20168b2200df.jpg"
+      },
+      {
+        "id": 19,
+        "name": "麻辣小龙虾",
+        "description": "麻辣小龙虾又名口味虾、长沙口味虾、香辣小龙虾，是湖南著名的地方小吃。",
+        "picture": "http://img.38xf.com/uploads/20171028/604178ae2f682957ba680bfcb0aa3436.jpg"
+      },
+      {
+        "id": 20,
+        "name": "粉蒸肉",
+        "description": "粉蒸肉是一道菜品，糯而清香，酥而爽口，有肥有瘦，红白相间，嫩而不糜，米粉油润，五香味浓郁。",
+        "picture": "http://img.38xf.com/uploads/20171021/fb872853dde481688cbbf2109ecad33a.jpg"
+      },
+      {
+        "id": 21,
+        "name": "灌汤包",
+        "description": "灌汤包子是一种传统特色小吃。制作原料主要有面粉、温水、猪五花肉等。",
+        "picture": "http://img1.100ye.com/img1/4/320/718/9480718/msgpic/24766490.jpg"
+      },
+      {
+        "id": 22,
+        "name": "担担面",
+        "description": "担担面是四川成都和自贡著名的地方传统面食小吃，据说源于挑夫们在街头挑着担担卖面，因而得名。",
+        "picture": "http://rj1.douguo.net/upload/diet/4/4/a/200_44ff862abb9dc7a6c6b324ff547d4f4a.jpg"
+      }
   ]
 }
