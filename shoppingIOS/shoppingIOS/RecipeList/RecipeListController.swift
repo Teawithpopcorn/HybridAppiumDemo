@@ -19,6 +19,9 @@ class RecipeListController: UIViewController {
         if viewModel.shouldShowLogin {
             viewModel.shouldShowLogin = false
             let loginVC = R.storyboard.login.loginViewController()!
+            loginVC.completeAtion = { [weak self] in
+                
+            }
             present(loginVC, animated: false, completion: nil)
         }
     }

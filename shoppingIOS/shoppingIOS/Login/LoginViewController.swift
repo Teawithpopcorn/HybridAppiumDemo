@@ -5,6 +5,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    var completeAtion : (() -> ())?
+    
     let viewModel = LoginViewModel()
     
     @IBAction func onLoginButtonTap(_ sender: Any) {
@@ -15,7 +17,9 @@ class LoginViewController: UIViewController {
         }
         
         modalTransitionStyle = .flipHorizontal
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) { [weak self] in
+          self?.completeAtion?()
+        }
     }
     
     @IBAction func onUserNameChanged(_ field: UITextField) {
