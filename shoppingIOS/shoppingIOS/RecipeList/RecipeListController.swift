@@ -7,6 +7,8 @@ class RecipeListController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noDataPlaceholderView: UIView!
     
+    weak var maskView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -22,7 +24,9 @@ class RecipeListController: UIViewController {
                 self.viewModel.recipes = recipes
                 self.reloadList()
             }
-            present(loginVC, animated: false, completion: nil)
+            present(loginVC, animated: false) { [unowned self] in
+                self.maskView.removeFromSuperview()
+            }
         }
     }
     
@@ -39,6 +43,11 @@ class RecipeListController: UIViewController {
         searchBar.delegate = self
         
         tableView.keyboardDismissMode = .onDrag
+        
+        let view = UIView(frame: CGRect(origin: CGPoint.zero, size: UIScreen.main.bounds.size))
+        view.backgroundColor = UIColor(red: 0, green: 125/255.0, blue: 195/255.0, alpha: 1)
+        UIApplication.shared.keyWindow?.addSubview(view)
+        maskView = view
     }
     
     private func reloadList() {
