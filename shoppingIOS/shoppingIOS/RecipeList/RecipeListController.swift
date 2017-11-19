@@ -40,6 +40,8 @@ class RecipeListController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        
+        tableView.keyboardDismissMode = .onDrag
     }
 }
 
@@ -71,17 +73,30 @@ extension RecipeListController: PageableListController {
 }
 
 extension RecipeListController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchText = searchText
         
         noDataPlacehoder?.isHidden = viewModel.hasData
         tableView.reloadData()
+        self.removePullRereshAndLoadMore()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         viewModel.searchText = ""
+        searchBar.showsCancelButton = false
         
         noDataPlacehoder?.isHidden = viewModel.hasData
         tableView.reloadData()
+        self.configPullRereshAndLoadMore()
     }
 }

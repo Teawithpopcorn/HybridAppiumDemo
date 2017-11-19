@@ -73,6 +73,11 @@ extension PageableListController {
         configLoadMore()
     }
     
+    func removePullRereshAndLoadMore() {
+        contentTableView.es.removeRefreshHeader()
+        contentTableView.es.removeRefreshFooter()
+    }
+    
     private func configPullRefresh() {
         let header: ESRefreshType = RefreshHeaderAnimator()
         contentTableView.es.addPullToRefresh(animator: header) { [unowned self] in
