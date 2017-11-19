@@ -27,6 +27,7 @@ xcuserdata/
 
 # dependencies
 /node_modules
+shoppingServer/node_modules
 
 # testing
 /coverage

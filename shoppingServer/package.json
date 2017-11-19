@@ -1,0 +1,12 @@
+{
+  "name": "shoppingServer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "json-server": "^0.12.1",
+    "lodash": "^4.17.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
