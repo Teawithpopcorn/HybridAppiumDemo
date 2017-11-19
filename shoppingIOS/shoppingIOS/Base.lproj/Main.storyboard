@@ -112,13 +112,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="此页面存在内存泄漏,点击返回按钮后改页面不会被释放" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBo-kB-PJV">
-                                <rect key="frame" x="26" y="124" width="323" height="41"/>
+                                <rect key="frame" x="26" y="144" width="323" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGC-z2-3gH">
-                                <rect key="frame" x="20" y="243" width="335" height="40"/>
+                                <rect key="frame" x="28" y="255" width="319" height="40"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yIP-it-y89"/>
@@ -132,12 +132,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="79o-mm-qtP" firstAttribute="trailing" secondItem="pGC-z2-3gH" secondAttribute="trailing" constant="20" id="26a-Uh-utC"/>
-                            <constraint firstItem="pGC-z2-3gH" firstAttribute="top" secondItem="eBo-kB-PJV" secondAttribute="bottom" constant="78" id="hod-If-vod"/>
-                            <constraint firstItem="pGC-z2-3gH" firstAttribute="leading" secondItem="79o-mm-qtP" secondAttribute="leading" constant="20" id="j0O-bs-oSs"/>
-                            <constraint firstItem="eBo-kB-PJV" firstAttribute="top" secondItem="79o-mm-qtP" secondAttribute="top" constant="60" id="mCO-nW-j1g"/>
+                            <constraint firstItem="79o-mm-qtP" firstAttribute="trailing" secondItem="pGC-z2-3gH" secondAttribute="trailing" constant="28" id="26a-Uh-utC"/>
+                            <constraint firstItem="pGC-z2-3gH" firstAttribute="top" secondItem="eBo-kB-PJV" secondAttribute="bottom" constant="70" id="hod-If-vod"/>
+                            <constraint firstItem="pGC-z2-3gH" firstAttribute="leading" secondItem="79o-mm-qtP" secondAttribute="leading" constant="28" id="j0O-bs-oSs"/>
+                            <constraint firstItem="eBo-kB-PJV" firstAttribute="top" secondItem="79o-mm-qtP" secondAttribute="top" constant="80" id="mCO-nW-j1g"/>
                             <constraint firstItem="79o-mm-qtP" firstAttribute="trailing" secondItem="eBo-kB-PJV" secondAttribute="trailing" constant="26" id="oe5-FD-mES"/>
                             <constraint firstItem="eBo-kB-PJV" firstAttribute="leading" secondItem="79o-mm-qtP" secondAttribute="leading" constant="26" id="piW-gL-7WL"/>
                         </constraints>
