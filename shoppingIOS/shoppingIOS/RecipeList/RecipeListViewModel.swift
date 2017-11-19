@@ -5,23 +5,24 @@ class RecipeListViewModel {
             displayRecipes = searchRecipe(text: searchText)
         }
     }
+    private let recipes: [Recipe]
+    private var displayRecipes: [Recipe]
     
-    private lazy var recipesViewModels = { () -> [RecipeCellViewModel] in
-        return Mocks.recipes.map { return RecipeCellViewModel(recipe: $0) }
-    }()
+    init() {
+        recipes = Mocks.recipes
+        displayRecipes = recipes
+    }
     
-    private lazy var displayRecipes: [RecipeCellViewModel] = {return recipesViewModels }()
-    
-    private func searchRecipe(text searchString: String) -> [RecipeCellViewModel] {
+    private func searchRecipe(text searchString: String) -> [Recipe] {
         guard !searchString.isEmpty else {
-            return recipesViewModels
+            return recipes
         }
         
-        return recipesViewModels.filter { $0.name.range(of: searchString) != nil }
+        return recipes.filter { $0.name.range(of: searchString) != nil }
     }
     
     func cellViewModel(at index: Int) -> RecipeCellViewModel {
-        return displayRecipes[index]
+        return  RecipeCellViewModel(recipe: displayRecipes[index])
     }
     
     func generateRecipeDetailViewMode(at index: Int) -> RecipeDetailViewModel {
