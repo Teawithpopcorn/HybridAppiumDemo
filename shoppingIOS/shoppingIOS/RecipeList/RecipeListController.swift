@@ -2,10 +2,19 @@ import UIKit
 
 class RecipeListController: UIViewController {
     let viewModel: RecipeListViewModel = RecipeListViewModel()
-    
-    @IBOutlet weak var searchBar: UISearchBar!
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noDataPlaceholderView: UIView!
+    
+    var recipeSearchController: UISearchController = ({
+        let resultsController = R.storyboard.main.recipeResultsController()!
+        let controller = UISearchController(searchResultsController: resultsController)
+        controller.hidesNavigationBarDuringPresentation = true
+        controller.dimsBackgroundDuringPresentation = true
+        controller.searchBar.searchBarStyle = .minimal
+        controller.searchBar.sizeToFit()
+        return controller
+    })()
     
     weak var maskView: UIView!
     
@@ -34,25 +43,37 @@ class RecipeListController: UIViewController {
         let nib = R.nib.recipeCell()
         let idString = R.reuseIdentifier.recipeCell.identifier
         tableView.register(nib, forCellReuseIdentifier: idString)
-        searchBar.placeholder = "搜索美食"
-        
-        self.configPullRereshAndLoadMore()
         
         tableView.dataSource = self
         tableView.delegate = self
-        searchBar.delegate = self
-        
         tableView.keyboardDismissMode = .onDrag
         
         let view = UIView(frame: CGRect(origin: CGPoint.zero, size: UIScreen.main.bounds.size))
         view.backgroundColor = UIColor(red: 0, green: 125/255.0, blue: 195/255.0, alpha: 1)
         UIApplication.shared.keyWindow?.addSubview(view)
         maskView = view
+        
+        let resultsController = recipeSearchController.searchResultsController as! RecipeResultsController
+        tableView.tableHeaderView = recipeSearchController.searchBar
+        recipeSearchController.searchResultsUpdater = self
+        recipeSearchController.searchBar.delegate = resultsController
+        resultsController.delegate = self
+        recipeSearchController.delegate = self
+        definesPresentationContext = true
+        recipeSearchController.searchBar.placeholder = "搜索美食"
+        
+        configPullRereshAndLoadMore()
     }
     
     private func reloadList() {
         noDataPlacehoder?.isHidden = viewModel.hasData
         tableView.reloadData()
+    }
+    
+    private func transitionToDetailPage(viewModel: RecipeDetailViewModel) {
+        let vc = R.storyboard.main.recipeDetailController()!
+        vc.viewModel = viewModel
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -63,10 +84,7 @@ extension RecipeListController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
-        let vc = R.storyboard.main.recipeDetailController()!
-        vc.viewModel = viewModel.generateRecipeDetailViewMode(at: indexPath.row)
-        navigationController?.pushViewController(vc, animated: true)
+        transitionToDetailPage(viewModel: viewModel.generateRecipeDetailViewModel(at: indexPath.row))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,32 +101,21 @@ extension RecipeListController: PageableListController {
     var contentTableView: UITableView { return tableView! }
 }
 
-extension RecipeListController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
-        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
-            cancelButton.setTitle("取消", for: .normal)
-        }
-        removePullRereshAndLoadMore()
+extension RecipeListController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        //print("working....")
     }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.searchText = searchText
-        
-        reloadList()
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        viewModel.searchText = ""
-        searchBar.showsCancelButton = false
+}
 
-        configPullRereshAndLoadMore()
-        reloadList()
+extension RecipeListController: UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        let result = searchController.searchResultsController as! RecipeResultsController
+        result.viewModel = viewModel.generateRecipeResultsViewModel()
+    }
+}
+
+extension RecipeListController: RecipeResultsControllerDelegate {
+    func selectedResult(result: RecipeDetailViewModel) {
+        transitionToDetailPage(viewModel: result)
     }
 }

@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DU-J3-6Cv">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-rR-beq" userLabel="noDataView">
@@ -65,20 +65,13 @@
                                     <constraint firstAttribute="trailing" secondItem="L6B-LW-lGB" secondAttribute="trailing" constant="20" id="s6W-LL-AEB"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6I4-Wz-xWH">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4DU-J3-6Cv" firstAttribute="top" secondItem="6I4-Wz-xWH" secondAttribute="bottom" id="9YP-23-YT3"/>
                             <constraint firstItem="iqP-rR-beq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ck5-Ys-LPQ"/>
-                            <constraint firstItem="6I4-Wz-xWH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ES9-d9-gji"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4DU-J3-6Cv" secondAttribute="bottom" id="Jvz-th-VJH"/>
+                            <constraint firstItem="4DU-J3-6Cv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Y9m-fl-13D"/>
                             <constraint firstItem="iqP-rR-beq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-20" id="b6l-wf-HZm"/>
-                            <constraint firstItem="6I4-Wz-xWH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fo2-qg-aY7"/>
-                            <constraint firstAttribute="trailing" secondItem="6I4-Wz-xWH" secondAttribute="trailing" id="lNI-Y9-bZk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4DU-J3-6Cv" secondAttribute="trailing" id="lpk-Hx-r0p"/>
                             <constraint firstItem="4DU-J3-6Cv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n9u-S9-F1m"/>
                         </constraints>
@@ -94,9 +87,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noDataPlaceholderView" destination="iqP-rR-beq" id="V1Z-Md-i0P"/>
-                        <outlet property="searchBar" destination="6I4-Wz-xWH" id="Zqw-D0-Tfm"/>
                         <outlet property="tableView" destination="4DU-J3-6Cv" id="PEd-lx-Qhu"/>
                         <segue destination="hC7-SZ-4KF" kind="show" id="6ve-GR-2J8"/>
+                        <segue destination="1Fj-cx-HR6" kind="show" id="yPT-hs-k44"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -260,6 +253,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cm3-z0-pzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948" y="115.59220389805098"/>
+        </scene>
+        <!--结果-->
+        <scene sceneID="yxV-4P-gkv">
+            <objects>
+                <viewController storyboardIdentifier="RecipeResultsController" title="结果" id="1Fj-cx-HR6" customClass="RecipeResultsController" customModule="shoppingIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aDk-rg-oa6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f1x-I6-PhQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAf-qt-35S" userLabel="noDataView">
+                                <rect key="frame" x="117" y="281.5" width="141" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noDataBox" translatesAutoresizingMaskIntoConstraints="NO" id="eqj-Vx-hr9">
+                                        <rect key="frame" x="20" y="0.0" width="101" height="89"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="101" id="dNh-1L-Tr2"/>
+                                            <constraint firstAttribute="height" constant="89" id="su8-PB-Yzk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无美食" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyc-GP-8iA" userLabel="暂无美美食">
+                                        <rect key="frame" x="41" y="105" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Eyc-GP-8iA" secondAttribute="bottom" constant="6" id="3J4-3r-2OR"/>
+                                    <constraint firstItem="eqj-Vx-hr9" firstAttribute="top" secondItem="wAf-qt-35S" secondAttribute="top" id="6e9-vA-KSa"/>
+                                    <constraint firstItem="Eyc-GP-8iA" firstAttribute="centerX" secondItem="eqj-Vx-hr9" secondAttribute="centerX" id="7QE-oA-yPG"/>
+                                    <constraint firstItem="Eyc-GP-8iA" firstAttribute="top" secondItem="eqj-Vx-hr9" secondAttribute="bottom" constant="16" id="BVO-qf-aDu"/>
+                                    <constraint firstItem="eqj-Vx-hr9" firstAttribute="leading" secondItem="wAf-qt-35S" secondAttribute="leading" constant="20" id="ScL-Im-aeW"/>
+                                    <constraint firstItem="eqj-Vx-hr9" firstAttribute="centerX" secondItem="wAf-qt-35S" secondAttribute="centerX" id="bcb-ac-xNb"/>
+                                    <constraint firstAttribute="trailing" secondItem="eqj-Vx-hr9" secondAttribute="trailing" constant="20" id="d04-ms-58v"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EAv-TG-Bx5" firstAttribute="trailing" secondItem="f1x-I6-PhQ" secondAttribute="trailing" id="1lu-w2-pDv"/>
+                            <constraint firstItem="wAf-qt-35S" firstAttribute="centerX" secondItem="EAv-TG-Bx5" secondAttribute="centerX" id="9xc-AC-d34"/>
+                            <constraint firstItem="EAv-TG-Bx5" firstAttribute="bottom" secondItem="f1x-I6-PhQ" secondAttribute="bottom" id="HV9-uo-Hua"/>
+                            <constraint firstItem="f1x-I6-PhQ" firstAttribute="top" secondItem="EAv-TG-Bx5" secondAttribute="top" id="LHc-1n-i2K"/>
+                            <constraint firstItem="wAf-qt-35S" firstAttribute="centerY" secondItem="EAv-TG-Bx5" secondAttribute="centerY" constant="-20" id="TbM-wL-LR4"/>
+                            <constraint firstItem="f1x-I6-PhQ" firstAttribute="leading" secondItem="EAv-TG-Bx5" secondAttribute="leading" id="sma-5p-Zlk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EAv-TG-Bx5"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="搜索结果" id="xzB-sm-Aj1">
+                        <barButtonItem key="backBarButtonItem" title=" " id="N7K-hm-fh2"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="noDataView" destination="wAf-qt-35S" id="rdK-L2-p4Q"/>
+                        <outlet property="tableview" destination="f1x-I6-PhQ" id="rZj-3a-bAU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Su2-x1-y7W" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65" y="-607"/>
         </scene>
     </scenes>
     <resources>

@@ -1,17 +1,7 @@
 class RecipeListViewModel: PageableListDataSource {
     var shouldShowLogin: Bool = true
-    var searchText: String = "" {
-        didSet {
-            displayRecipes = searchRecipe(text: searchText)
-        }
-    }
-    
-    var recipes: [Recipe] = [] {
-        didSet {
-            displayRecipes = recipes
-        }
-    }
-    private var displayRecipes: [Recipe] = []
+
+    var recipes: [Recipe] = []
     
     func fetchPageableDataList(indexId: Int?) -> Promise<[PageableModel]> {
         return RecipeAPI.fetchRecipes(lastId: indexId)
@@ -26,31 +16,27 @@ class RecipeListViewModel: PageableListDataSource {
     }
     
     var pageableDataSource: [PageableModel] {
-        return self.displayRecipes
+        return self.recipes
     }
     
     var hasData: Bool {
         return self.pageableDataSource.count > 0
     }
     
-    private func searchRecipe(text searchString: String) -> [Recipe] {
-        guard !searchString.isEmpty else {
-            return recipes
-        }
-        
-        return recipes.filter { $0.name.range(of: searchString) != nil }
-    }
-    
     func cellViewModel(at index: Int) -> RecipeCellViewModel {
-        return RecipeCellViewModel(recipe: displayRecipes[index])
+        return RecipeCellViewModel(recipe: recipes[index])
     }
     
-    func generateRecipeDetailViewMode(at index: Int) -> RecipeDetailViewModel {
-        return RecipeDetailViewModel(recipe: cellViewModel(at: index).recipe)
+    func generateRecipeDetailViewModel(at index: Int) -> RecipeDetailViewModel {
+        return RecipeDetailViewModel(recipe: recipes[index])
+    }
+    
+    func generateRecipeResultsViewModel() -> RecipeResultsViewModel {
+        return RecipeResultsViewModel(recipes: recipes)
     }
     
     func numberOfRows() -> Int {
-        return displayRecipes.count
+        return recipes.count
     }
 }
 
