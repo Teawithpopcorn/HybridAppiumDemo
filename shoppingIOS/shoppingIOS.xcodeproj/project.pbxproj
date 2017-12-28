@@ -47,6 +47,9 @@
 		6F6396D71FC336FA00F7E20A /* RecipeResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6396D61FC336FA00F7E20A /* RecipeResultsController.swift */; };
 		6F6396D91FC3371B00F7E20A /* RecipeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6396D81FC3371B00F7E20A /* RecipeResultsViewModel.swift */; };
 		7478B2710E60E68C39CA4DEF /* Pods_shoppingIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D135615ADD2905F78B3E1B /* Pods_shoppingIOS.framework */; };
+		991439351FF3D9FB00CCC490 /* DataBurialPointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991439331FF3D9FB00CCC490 /* DataBurialPointManager.swift */; };
+		991439361FF3D9FB00CCC490 /* DataBurialPointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991439341FF3D9FB00CCC490 /* DataBurialPointModel.swift */; };
+		991439381FF3E8E500CCC490 /* DataBurialPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991439371FF3E8E500CCC490 /* DataBurialPointController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +117,9 @@
 		6F49C2C51FA58F1400D20612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F6396D61FC336FA00F7E20A /* RecipeResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResultsController.swift; sourceTree = "<group>"; };
 		6F6396D81FC3371B00F7E20A /* RecipeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResultsViewModel.swift; sourceTree = "<group>"; };
+		991439331FF3D9FB00CCC490 /* DataBurialPointManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBurialPointManager.swift; sourceTree = "<group>"; };
+		991439341FF3D9FB00CCC490 /* DataBurialPointModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBurialPointModel.swift; sourceTree = "<group>"; };
+		991439371FF3E8E500CCC490 /* DataBurialPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBurialPointController.swift; sourceTree = "<group>"; };
 		A6D135615ADD2905F78B3E1B /* Pods_shoppingIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shoppingIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7291CC1D4D88C67416470CB /* Pods-shoppingIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shoppingIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shoppingIOSTests/Pods-shoppingIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB5CFDCDCBEE87322B1172B6 /* Pods-shoppingIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shoppingIOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shoppingIOSUITests/Pods-shoppingIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -299,6 +305,7 @@
 		6F49C2A21FA58F1400D20612 /* shoppingIOS */ = {
 			isa = PBXGroup;
 			children = (
+				991439321FF3D9FB00CCC490 /* DataBurialPoint */,
 				6F1A353F1FAECCA5004CBBF3 /* Shared */,
 				6F1A35401FAECCCA004CBBF3 /* Login */,
 				6F1A354C1FAF0466004CBBF3 /* RecipeList */,
@@ -339,6 +346,16 @@
 				6F6396D81FC3371B00F7E20A /* RecipeResultsViewModel.swift */,
 			);
 			path = RecipeResultsController;
+			sourceTree = "<group>";
+		};
+		991439321FF3D9FB00CCC490 /* DataBurialPoint */ = {
+			isa = PBXGroup;
+			children = (
+				991439371FF3E8E500CCC490 /* DataBurialPointController.swift */,
+				991439331FF3D9FB00CCC490 /* DataBurialPointManager.swift */,
+				991439341FF3D9FB00CCC490 /* DataBurialPointModel.swift */,
+			);
+			path = DataBurialPoint;
 			sourceTree = "<group>";
 		};
 		AF070D5205F06932BBAC928B /* Frameworks */ = {
@@ -694,12 +711,15 @@
 				6F1A356B1FAF50AF004CBBF3 /* ComboRow.swift in Sources */,
 				6F6396D71FC336FA00F7E20A /* RecipeResultsController.swift in Sources */,
 				6F1A354E1FAF04C4004CBBF3 /* RecipeListViewModel.swift in Sources */,
+				991439351FF3D9FB00CCC490 /* DataBurialPointManager.swift in Sources */,
 				6F1A35531FAF0D33004CBBF3 /* RecipeCell.swift in Sources */,
 				6F1A354B1FAEFE87004CBBF3 /* R.generated.swift in Sources */,
 				6F1A35571FAF11BB004CBBF3 /* Recipe.swift in Sources */,
 				6F49C2A61FA58F1400D20612 /* RecipeListController.swift in Sources */,
+				991439361FF3D9FB00CCC490 /* DataBurialPointModel.swift in Sources */,
 				6F25F6CE1FC165F200205ED8 /* RecipeAPI.swift in Sources */,
 				6F49C2A41FA58F1400D20612 /* AppDelegate.swift in Sources */,
+				991439381FF3E8E500CCC490 /* DataBurialPointController.swift in Sources */,
 				6F25F6CC1FC165D800205ED8 /* APIClient.swift in Sources */,
 				6F1A35711FAF5CA8004CBBF3 /* ComboRowViewModel.swift in Sources */,
 			);
@@ -869,9 +889,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9699X2PP7Y;
 				INFOPLIST_FILE = shoppingIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.holy.shoppingIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = holy.shoppingIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -884,9 +905,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9699X2PP7Y;
 				INFOPLIST_FILE = shoppingIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.holy.shoppingIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = holy.shoppingIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
