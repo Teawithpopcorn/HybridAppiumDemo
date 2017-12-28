@@ -18,13 +18,13 @@ class MoreTestController: DataBurialPointController {
     }
     
     @IBAction func onCrashButtonTap(_ sender: Any) {
-//        let number: Int? = nil
-//        _ = number!
-
-        
+        let number: Int? = nil
+        _ = number!
+    }
+    @IBAction func onCycleButtonTouch(_ sender: Any)
+    {
         var test: A? = A()
         test = nil
-        
     }
 }
 
