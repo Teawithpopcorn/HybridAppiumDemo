@@ -1,7 +1,7 @@
 import UIKit
 import PromiseKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: DataBurialPointController {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         }
         
         modalTransitionStyle = .flipHorizontal
-        
+ 
         ShoppingHUD.showProgressHUD()
         firstly {
             return RecipeAPI.fetchRecipes(lastId: nil)

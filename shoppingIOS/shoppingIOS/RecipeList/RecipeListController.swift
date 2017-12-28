@@ -1,6 +1,6 @@
 import UIKit
 
-class RecipeListController: UIViewController {
+class RecipeListController: DataBurialPointController {
     let viewModel: RecipeListViewModel = RecipeListViewModel()
 
     @IBOutlet weak var tableView: UITableView!
@@ -73,6 +73,10 @@ class RecipeListController: UIViewController {
     private func transitionToDetailPage(viewModel: RecipeDetailViewModel) {
         let vc = R.storyboard.main.recipeDetailController()!
         vc.viewModel = viewModel
+        let dbpModel:DataBurialPointModel = DataBurialPointModel()
+        dbpModel.name = "详情页"
+        dbpModel.page = "RecipeDetailController"
+        vc.dataBurialPointModel = dbpModel
         navigationController?.pushViewController(vc, animated: true)
     }
 }

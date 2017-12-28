@@ -1,6 +1,6 @@
 import UIKit
 
-class RecipeDetailController: UIViewController {
+class RecipeDetailController: DataBurialPointController {
     @IBOutlet weak var recipeDetail: UIImageView!
     @IBOutlet weak var recipeDescription: UILabel!
     @IBOutlet weak var purchaseButton: UIButton!
@@ -14,6 +14,11 @@ class RecipeDetailController: UIViewController {
         super.viewDidLoad()
         setupViews()
         updateViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
     }
     
     private func setupViews() {

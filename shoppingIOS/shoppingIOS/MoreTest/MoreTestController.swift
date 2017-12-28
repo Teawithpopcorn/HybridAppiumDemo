@@ -1,6 +1,6 @@
 import UIKit
 
-class MoreTestController: UIViewController {
+class MoreTestController: DataBurialPointController {
     private var leakBlock: (() -> Void)?
     
     private var dataArray: [String] = []
@@ -18,7 +18,39 @@ class MoreTestController: UIViewController {
     }
     
     @IBAction func onCrashButtonTap(_ sender: Any) {
-        let number: Int? = nil
-        _ = number!
+//        let number: Int? = nil
+//        _ = number!
+
+        
+        var test: A? = A()
+        test = nil
+        
     }
 }
+
+class A:NSObject
+{
+    var b: B?=nil
+    override init()
+    {
+        super.init()
+        self.b = B()
+        self.b?.a = self
+    }
+    deinit
+    {
+        print("A is deinited")
+    }
+}
+
+class B {
+    var a: A? = nil
+    deinit
+    {
+        print("B is deinited")
+    }
+}
+
+
+
+

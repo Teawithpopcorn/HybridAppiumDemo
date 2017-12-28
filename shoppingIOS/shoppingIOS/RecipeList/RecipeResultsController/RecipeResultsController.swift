@@ -4,7 +4,7 @@ protocol RecipeResultsControllerDelegate: class {
     func selectedResult(result: RecipeDetailViewModel)
 }
 
-class RecipeResultsController: UIViewController {
+class RecipeResultsController: DataBurialPointController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var noDataView: UIView!
     
