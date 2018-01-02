@@ -18,9 +18,16 @@ class RecipeListController: DataBurialPointController {
     
     weak var maskView: UIView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         setupViews()
+        
+        let managerItem:UIBarButtonItem = UIBarButtonItem(title: "管理",
+                                                          style: UIBarButtonItemStyle.plain,
+                                                          target: self,
+                                                          action: #selector(showDBPManager))
+        self.navigationItem.setLeftBarButton(managerItem, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +70,12 @@ class RecipeListController: DataBurialPointController {
         recipeSearchController.searchBar.placeholder = "搜索美食"
         
         configPullRereshAndLoadMore()
+    }
+    
+    @objc private func showDBPManager()
+    {
+        let viewController :DBPManagerViewController = DBPManagerViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func reloadList() {

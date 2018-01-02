@@ -50,6 +50,10 @@
 		991439351FF3D9FB00CCC490 /* DataBurialPointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991439331FF3D9FB00CCC490 /* DataBurialPointManager.swift */; };
 		991439361FF3D9FB00CCC490 /* DataBurialPointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991439341FF3D9FB00CCC490 /* DataBurialPointModel.swift */; };
 		991439381FF3E8E500CCC490 /* DataBurialPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991439371FF3E8E500CCC490 /* DataBurialPointController.swift */; };
+		DE16EF461FFB65AD004E6DB3 /* DBPManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16EF441FFB65AD004E6DB3 /* DBPManagerViewController.swift */; };
+		DE16EF471FFB65AD004E6DB3 /* DBPManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE16EF451FFB65AD004E6DB3 /* DBPManagerViewController.xib */; };
+		DE16EF4A1FFB6679004E6DB3 /* DBPManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16EF481FFB6679004E6DB3 /* DBPManagerCell.swift */; };
+		DE16EF4B1FFB6679004E6DB3 /* DBPManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE16EF491FFB6679004E6DB3 /* DBPManagerCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +128,10 @@
 		B7291CC1D4D88C67416470CB /* Pods-shoppingIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shoppingIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shoppingIOSTests/Pods-shoppingIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB5CFDCDCBEE87322B1172B6 /* Pods-shoppingIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shoppingIOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shoppingIOSUITests/Pods-shoppingIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D129A93F5FB08118F7165D66 /* libPods-shoppingIOSUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shoppingIOSUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE16EF441FFB65AD004E6DB3 /* DBPManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBPManagerViewController.swift; sourceTree = "<group>"; };
+		DE16EF451FFB65AD004E6DB3 /* DBPManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBPManagerViewController.xib; sourceTree = "<group>"; };
+		DE16EF481FFB6679004E6DB3 /* DBPManagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBPManagerCell.swift; sourceTree = "<group>"; };
+		DE16EF491FFB6679004E6DB3 /* DBPManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DBPManagerCell.xib; sourceTree = "<group>"; };
 		F940E0B860944C4500914784 /* Pods-shoppingIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shoppingIOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-shoppingIOSUITests/Pods-shoppingIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -354,6 +362,10 @@
 				991439371FF3E8E500CCC490 /* DataBurialPointController.swift */,
 				991439331FF3D9FB00CCC490 /* DataBurialPointManager.swift */,
 				991439341FF3D9FB00CCC490 /* DataBurialPointModel.swift */,
+				DE16EF441FFB65AD004E6DB3 /* DBPManagerViewController.swift */,
+				DE16EF451FFB65AD004E6DB3 /* DBPManagerViewController.xib */,
+				DE16EF481FFB6679004E6DB3 /* DBPManagerCell.swift */,
+				DE16EF491FFB6679004E6DB3 /* DBPManagerCell.xib */,
 			);
 			path = DataBurialPoint;
 			sourceTree = "<group>";
@@ -490,7 +502,9 @@
 				6F49C2AE1FA58F1400D20612 /* LaunchScreen.storyboard in Resources */,
 				6F1A35511FAF0D19004CBBF3 /* RecipeCell.xib in Resources */,
 				6F49C2AB1FA58F1400D20612 /* Assets.xcassets in Resources */,
+				DE16EF471FFB65AD004E6DB3 /* DBPManagerViewController.xib in Resources */,
 				6F49C2A91FA58F1400D20612 /* Main.storyboard in Resources */,
+				DE16EF4B1FFB6679004E6DB3 /* DBPManagerCell.xib in Resources */,
 				6F1A356D1FAF5A8D004CBBF3 /* ComboRow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +714,7 @@
 				6F1A357C1FB01395004CBBF3 /* ShoppingHUD.swift in Sources */,
 				6F1A35731FAF6911004CBBF3 /* UIView+AutoLayout.swift in Sources */,
 				6F1A35641FAF432A004CBBF3 /* Storyboard+UIKit.swift in Sources */,
+				DE16EF461FFB65AD004E6DB3 /* DBPManagerViewController.swift in Sources */,
 				6F25F6D01FC173E500205ED8 /* PageableListController.swift in Sources */,
 				6F1A355A1FAF1366004CBBF3 /* UIImageView+WebImage.swift in Sources */,
 				6F25F6D31FC1962200205ED8 /* MoreTestController.swift in Sources */,
@@ -711,6 +726,7 @@
 				6F1A356B1FAF50AF004CBBF3 /* ComboRow.swift in Sources */,
 				6F6396D71FC336FA00F7E20A /* RecipeResultsController.swift in Sources */,
 				6F1A354E1FAF04C4004CBBF3 /* RecipeListViewModel.swift in Sources */,
+				DE16EF4A1FFB6679004E6DB3 /* DBPManagerCell.swift in Sources */,
 				991439351FF3D9FB00CCC490 /* DataBurialPointManager.swift in Sources */,
 				6F1A35531FAF0D33004CBBF3 /* RecipeCell.swift in Sources */,
 				6F1A354B1FAEFE87004CBBF3 /* R.generated.swift in Sources */,
@@ -889,10 +905,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9699X2PP7Y;
+				DEVELOPMENT_TEAM = 954K52NUN2;
 				INFOPLIST_FILE = shoppingIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = holy.shoppingIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = zw.holy.shoppingIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -905,10 +921,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9699X2PP7Y;
+				DEVELOPMENT_TEAM = 954K52NUN2;
 				INFOPLIST_FILE = shoppingIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = holy.shoppingIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = zw.holy.shoppingIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
