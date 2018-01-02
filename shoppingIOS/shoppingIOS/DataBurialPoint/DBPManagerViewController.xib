@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DBPManagerViewController" customModule="shoppingIOS" customModuleProvider="target">
             <connections>
                 <outlet property="_listTableView" destination="JSP-1F-sPt" id="hlB-jy-ElF"/>
+                <outlet property="deleteButton" destination="q2i-ax-rmf" id="sIa-nC-Ug6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,19 +22,49 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSP-1F-sPt">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="597"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="uG5-yJ-L8h"/>
                         <outlet property="delegate" destination="-1" id="iXg-AJ-9N4"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nR0-0a-a2A">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2i-ax-rmf">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="删除">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="清空">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="didDeleteButtonTouch:" destination="-1" eventType="touchUpInside" id="BHO-OE-sVL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="q2i-ax-rmf" firstAttribute="top" secondItem="nR0-0a-a2A" secondAttribute="top" id="1KV-4J-iGg"/>
+                        <constraint firstItem="q2i-ax-rmf" firstAttribute="leading" secondItem="nR0-0a-a2A" secondAttribute="leading" id="inj-8m-zen"/>
+                        <constraint firstAttribute="bottom" secondItem="q2i-ax-rmf" secondAttribute="bottom" id="j7s-Xu-WGK"/>
+                        <constraint firstAttribute="height" constant="50" id="jX2-ma-M6l"/>
+                        <constraint firstAttribute="trailing" secondItem="q2i-ax-rmf" secondAttribute="trailing" id="s2n-er-Uux"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="JSP-1F-sPt" secondAttribute="bottom" id="Sx4-3n-enX"/>
+                <constraint firstItem="nR0-0a-a2A" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I8p-1Z-Ghp"/>
+                <constraint firstAttribute="bottom" secondItem="nR0-0a-a2A" secondAttribute="bottom" id="Vog-X4-QKf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JSP-1F-sPt" secondAttribute="trailing" id="WO3-gB-Rsb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nR0-0a-a2A" secondAttribute="trailing" id="Xk5-Yl-f1b"/>
                 <constraint firstItem="JSP-1F-sPt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="p24-Oi-dWH"/>
+                <constraint firstItem="nR0-0a-a2A" firstAttribute="top" secondItem="JSP-1F-sPt" secondAttribute="bottom" id="wGg-Bs-Ndj"/>
                 <constraint firstItem="JSP-1F-sPt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xdc-gg-7Oy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

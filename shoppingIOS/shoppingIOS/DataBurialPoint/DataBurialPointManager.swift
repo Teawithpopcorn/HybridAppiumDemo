@@ -13,16 +13,21 @@ class DataBurialPointManager: NSObject
     static let shareManager = DataBurialPointManager.init()
     let filePath:String = NSHomeDirectory() + "/Documents/DataBurialPoint.plist"
     
-    func insetDataWithModel(model:DataBurialPointModel) -> ()
+    func insetDatasWithDics(datas:NSArray) -> ()
     {
         let dataBurialPoints:NSMutableArray? = self.loadDataBurialPointFromSandBox()
-        let insertDic:NSDictionary = ["name":model.name,"page":model.page,"startTime":model.startTime,"endTime":model.endTime,"duration":model.duration]
-        dataBurialPoints?.add(insertDic)
+        dataBurialPoints?.insert(datas as! [Any], at:IndexSet.init(integer: 0))
         let plistUrl:URL = URL(fileURLWithPath:filePath)
         if dataBurialPoints!.write(to: plistUrl, atomically: true)
         {
             print("保存成功")
         }
+    }
+    
+    func insetDataWithModel(model:DataBurialPointModel) -> ()
+    {
+        let insertDic:NSDictionary = ["name":model.name,"page":model.page,"startTime":model.startTime,"endTime":model.endTime,"duration":model.duration]
+        self.insetDatasWithDics(datas: [insertDic])
     }
     
     func loadDataBurialPointFromSandBox() -> NSMutableArray?

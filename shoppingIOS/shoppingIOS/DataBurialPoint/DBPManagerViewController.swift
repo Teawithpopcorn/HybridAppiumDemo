@@ -12,6 +12,7 @@ import UIKit
 {
     var leftButton:UIButton? = nil
     
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var _listTableView: UITableView!
     var _dataArray:NSMutableArray?
     static let DBPManagerCellIdentifier:String = "DBPManagerCell"
@@ -67,9 +68,37 @@ import UIKit
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if _listTableView.indexPathsForSelectedRows?.count == _dataArray?.count
+        if _listTableView.isEditing
         {
-            print("删除全部")
+            if _listTableView.indexPathsForSelectedRows?.count == _dataArray?.count
+            {
+                print("删除全部")
+                deleteButton.isSelected = true
+            }
+            else
+            {
+                deleteButton.isSelected = false
+            }
+        }
+        else
+        {
+            _listTableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+    {
+        if _listTableView.isEditing
+        {
+            if _listTableView.indexPathsForSelectedRows == nil && _dataArray?.count != 0
+            {
+                print("删除全部")
+                deleteButton.isSelected = true
+            }
+            else
+            {
+                deleteButton.isSelected = false
+            }
         }
     }
     
@@ -87,15 +116,51 @@ import UIKit
         if _listTableView.isEditing
         {
             leftButton?.isSelected = false
+            deleteButton.alpha = 0.5
+            deleteButton.isUserInteractionEnabled = false
             _listTableView.setEditing(false, animated: true)
         }
-        else
+        else if _dataArray?.count != 0
         {
             leftButton?.isSelected = true
+            deleteButton.isSelected = true
+            deleteButton.alpha = 1
+            deleteButton.isUserInteractionEnabled = true
             _listTableView.setEditing(true, animated: true)
         }
     }
-
+    @IBAction func didDeleteButtonTouch(_ sender: Any)
+    {
+        if _listTableView.indexPathsForSelectedRows == nil && _dataArray?.count != 0
+        {
+            self.cleanAllData()
+            self.didLeftNaviButtonTouch()
+        }
+        else if _listTableView.indexPathsForSelectedRows?.count == _dataArray?.count
+        {
+            self.cleanAllData()
+            self.didLeftNaviButtonTouch()
+        }
+        else if _listTableView.indexPathsForSelectedRows?.count != 0
+        {
+            let deleteArray:NSMutableArray = NSMutableArray()
+            for i in _listTableView.indexPathsForSelectedRows!
+            {
+                deleteArray.add(_dataArray?.object(at: i.row) as Any)
+            }
+            _dataArray?.removeObjects(in: deleteArray as! [Any])
+            _listTableView.reloadData()
+        }
+    }
+    
+    func cleanAllData() -> ()
+    {
+        print("清除全部")
+        _dataArray?.removeAllObjects()
+        DataBurialPointManager.shareManager.insetDatasWithDics(datas: _dataArray!)
+        _listTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

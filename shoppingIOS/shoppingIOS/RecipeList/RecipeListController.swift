@@ -87,7 +87,7 @@ class RecipeListController: DataBurialPointController {
         let vc = R.storyboard.main.recipeDetailController()!
         vc.viewModel = viewModel
         let dbpModel:DataBurialPointModel = DataBurialPointModel()
-        dbpModel.name = "详情页"
+        dbpModel.name = viewModel.name+"详情页"
         dbpModel.page = "RecipeDetailController"
         vc.dataBurialPointModel = dbpModel
         navigationController?.pushViewController(vc, animated: true)
