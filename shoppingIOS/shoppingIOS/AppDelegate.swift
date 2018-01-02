@@ -20,13 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.isIdleTimerDisabled = false
-        
+        self.wasteCPU()
         return true
     }
     func wasteCPU() -> ()
     {
-        for _ in 1...10000 {
-            print("LaunchTime")
+        var a = 0.03
+        for _ in 1...1000 {
+            for _ in 1...1000 {
+                a += 0.01
+                print(a)
+            }
         }
     }
 
