@@ -68,6 +68,7 @@ class DataBurialPointModel: NSObject,NSCoding
             self.duration = "\(duration)"
             DataBurialPointManager.shareManager.insetDataWithModel(model:self)
 
+
         }
 
     }

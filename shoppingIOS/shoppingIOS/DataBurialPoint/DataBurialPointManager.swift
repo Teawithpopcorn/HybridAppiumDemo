@@ -15,6 +15,7 @@ class DataBurialPointManager: NSObject
     
     func insetDatasWithDics(datas:NSArray) -> ()
     {
+
         let dataBurialPoints:NSMutableArray? = self.loadDataBurialPointFromSandBox()
         dataBurialPoints?.insert(datas as! [Any], at:IndexSet.init(integer: 0))
         let plistUrl:URL = URL(fileURLWithPath:filePath)
@@ -27,7 +28,9 @@ class DataBurialPointManager: NSObject
     func insetDataWithModel(model:DataBurialPointModel) -> ()
     {
         let insertDic:NSDictionary = ["name":model.name,"page":model.page,"startTime":model.startTime,"endTime":model.endTime,"duration":model.duration]
-        self.insetDatasWithDics(datas: [insertDic])
+        DispatchQueue.global().async{
+            self.insetDatasWithDics(datas: [insertDic])
+        }
     }
     
     func loadDataBurialPointFromSandBox() -> NSMutableArray?

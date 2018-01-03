@@ -38,7 +38,8 @@ class DBPManagerCell: UITableViewCell
     {
         _nameLabel.text = dic["name"] as? String
         _pageLabel.text = dic["page"] as? String
-        _durationLabel.text = dic["duration"] as? String
+        let duration:NSString! = (dic["duration"] as? NSString) ?? "0"
+        _durationLabel.text = "\(duration.intValue) ms"
         _strLabel.text = dic["startTime"] as? String
         _endLabel.text = dic["endTime"] as? String
 
