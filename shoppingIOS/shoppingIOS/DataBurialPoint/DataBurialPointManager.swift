@@ -17,7 +17,24 @@ class DataBurialPointManager: NSObject
     {
 
         let dataBurialPoints:NSMutableArray? = self.loadDataBurialPointFromSandBox()
-        dataBurialPoints?.insert(datas as! [Any], at:IndexSet.init(integer: 0))
+        if datas.count > 0
+        {
+            dataBurialPoints?.insert(datas as! [Any], at:IndexSet.init(integer: 0))
+        }
+        let plistUrl:URL = URL(fileURLWithPath:filePath)
+        if dataBurialPoints!.write(to: plistUrl, atomically: true)
+        {
+            print("保存成功")
+        }
+    }
+    
+    func cleanAllDatas() -> ()
+    {
+        let dataBurialPoints:NSMutableArray? = self.loadDataBurialPointFromSandBox()
+        if dataBurialPoints?.count != 0
+        {
+            dataBurialPoints?.removeAllObjects()
+        }
         let plistUrl:URL = URL(fileURLWithPath:filePath)
         if dataBurialPoints!.write(to: plistUrl, atomically: true)
         {

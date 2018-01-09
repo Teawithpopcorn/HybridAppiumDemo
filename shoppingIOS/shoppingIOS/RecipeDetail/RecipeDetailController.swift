@@ -16,11 +16,6 @@ class RecipeDetailController: DataBurialPointController {
         updateViews()
     }
     
-    override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-    }
-    
     private func setupViews() {
         comboRow.bind(viewModel: viewModel.comboRowViewModel)
         flavorRow.bind(viewModel: viewModel.flavorsViewModel)

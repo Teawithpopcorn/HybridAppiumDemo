@@ -157,7 +157,7 @@ import UIKit
     {
         print("清除全部")
         _dataArray?.removeAllObjects()
-        DataBurialPointManager.shareManager.insetDatasWithDics(datas: _dataArray!)
+        DataBurialPointManager.shareManager.cleanAllDatas()
         _listTableView.reloadData()
     }
     

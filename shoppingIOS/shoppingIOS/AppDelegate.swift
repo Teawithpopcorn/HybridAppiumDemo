@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.isIdleTimerDisabled = false
-        //self.wasteCPU()
+//        self.wasteCPU()
         return true
     }
     func wasteCPU() -> ()

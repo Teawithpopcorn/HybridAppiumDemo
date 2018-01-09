@@ -84,11 +84,11 @@ class RecipeListController: DataBurialPointController {
     }
     
     private func transitionToDetailPage(viewModel: RecipeDetailViewModel) {
-        let vc = R.storyboard.main.recipeDetailController()!
-        vc.viewModel = viewModel
         let dbpModel:DataBurialPointModel = DataBurialPointModel()
         dbpModel.name = viewModel.name+"详情页"
         dbpModel.page = "RecipeDetailController"
+        let vc = R.storyboard.main.recipeDetailController()!
+        vc.viewModel = viewModel
         vc.dataBurialPointModel = dbpModel
         navigationController?.pushViewController(vc, animated: true)
     }
